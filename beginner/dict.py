@@ -33,6 +33,7 @@ jbk = {
         'O101':{'name':'sai','salery':30000},
         'O102':{'name':'sakshi','salery':20000}
                 }
+}
 
 # jbk.clear()
 print()
