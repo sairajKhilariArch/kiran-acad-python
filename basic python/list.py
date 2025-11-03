@@ -1,9 +1,9 @@
 # list
 
 #  list is a comma seperated elements whitin []
-                # SYNTAX :
-                        # var = [e1,e2,e3,...]
-                        
+# SYNTAX :
+# var = [e1,e2,e3,...]
+
 '''
 examples:
 
@@ -23,6 +23,7 @@ print(type(students)) #<class 'list'>
 # all the fundamental data type are IMMUTABLE   
 
 # Heterogeneous MEANS :   DIfferent type of datatype
+
 # list allow different type of data type  and data 
 
 #  dublicates are allowed
