@@ -23,18 +23,18 @@ DICTIONARY :
 '''
 from typing import Dict
 
-# nested dict 
-jbk = {
-    'facuilty':{
-        'f101':{'name':'om','salery':50000},
-        'f102':{'name':'shanti','salery':40000}
-                },
-    'operation':{
-        'O101':{'name':'sai','salery':30000},
-        'O102':{'name':'sakshi','salery':20000}
-                }
+# Define types for clarity: outer -> department -> employee -> {str: str | int}
+jbk: Dict[str, Dict[str, Dict[str, str | int]]] = {
+    'faculty': {  # Fixed typo for better readability
+        'f101': {'name': 'om', 'salary': 50000},  # Fixed spelling
+        'f102': {'name': 'shanti', 'salary': 40000}
+    },
+    'operation': {
+        'O101': {'name': 'sai', 'salary': 30000},
+        'O102': {'name': 'sakshi', 'salary': 20000}
+    }
+}
 
-# jbk.clear()
 print()
 print(jbk.items())
 print()
@@ -42,5 +42,8 @@ print(jbk.keys())
 print()
 print(jbk.values())
 print()
-print(jbk[operation][O101].update(name="sa"))
+
+# Update the name (use quotes for keys; update returns None, so print after)
+jbk['operation']['O101'].update({'name': 'sa'})  # Or: .update(name='sa')
+print(jbk['operation']['O101'])  # Shows updated: {'name': 'sa', 'salary': 30000}
 print(jbk)
