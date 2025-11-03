@@ -28,3 +28,27 @@ print(type(students)) #<class 'list'>
 
 #  dublicates are allowed
 
+# 1.indexing:::
+'''
+listt = [1,2,3,4,5,6]
+print("index value of 1 in listt :",listt[1])
+
+students = ['jauy','ajay','vijay',"jay"]
+print("index value of -1 in students :",listt[-1])
+'''
+
+# 2.slicing:
+'''
+var[Start_index : End_index : Step_index]
+
+StartIndex => value which slicing start from 
+EndIndex => value which slicing end to 
+stepValue =>
+        forward => + valueStep
+        reverce => - valueStep
+'''
+
+numk = [1,2,3,4,5,6,87]
+print(numk[1:7]) # [2, 3, 4, 5, 6]
+print(numk[::2]) # [1, 3, 5, 87]
+
