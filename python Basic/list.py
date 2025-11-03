@@ -46,9 +46,47 @@ EndIndex => value which slicing end to
 stepValue =>
         forward => + valueStep
         reverce => - valueStep
-'''
 
 numk = [1,2,3,4,5,6,87]
+
 print(numk[1:7]) # [2, 3, 4, 5, 6]
+
 print(numk[::2]) # [1, 3, 5, 87]
+
+'''
+
+
+# METHODS
+
+# HOW TO ADD DATA INTO LIST :
+
+# Append
+# Insert
+# Extend
+
+# 1.append(obj):
+        # it adds the data at the end
+'''
+i = [11,222,33]
+i.append(44) 
+print(i)  # [11, 222, 33, 44]
+
+'''
+
+# 2.insert[index,obj]
+        #  it add data at perticular index
+'''
+i = [11,22,33]
+i.insert(3,44) #[11, 22, 33, 44]
+i.insert(4,66) #[11, 22, 33, 44, 66]
+i.insert(4,55) #[11, 22, 33, 44, 55, 66]
+print(i)
+'''
+
+# 3.extend:
+        #  it adds iterables to the perticular index (like adding list or dict , tuple , set , string)
+        #  it only takes iterabls
+''''''
+
+
 
