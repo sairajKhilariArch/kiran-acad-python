@@ -18,7 +18,12 @@ print(type(students)) #<class 'list'>
 '''
 
 
-''''''
+# it is ordered , Mutable , Heterogeneous , collection of elemens  where dublicates are allowed .....
 
+# all the fundamental data type are IMMUTABLE   
 
+# Heterogeneous MEANS :   DIfferent type of datatype
+# list allow different type of data type  and data 
+
+#  dublicates are allowed
 
