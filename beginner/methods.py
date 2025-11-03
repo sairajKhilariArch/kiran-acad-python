@@ -1,5 +1,8 @@
 # METHODS 
 
+# NO. OF   paremeter require no. of arguments
+
+
 #  methods takes parameter 
 # .isalnum
 # .isalpha()
@@ -26,3 +29,4 @@ print(name.startswith('s',1,10)) # : False
 print(name.endswith('i',2,5))  # : False
 
 print(name.center(100,"-"))  # :output --------------------------------------sairaj rajendra khilari---------------------------------------
+
