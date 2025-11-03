@@ -34,7 +34,7 @@ jbk = {
         'O102':{'name':'sakshi','salery':20000}
                 }
 }hh
-cc
+ccjj
 # jbk.clear()
 print()
 print(jbk.items())
