@@ -56,7 +56,7 @@ print(numbers) # [10, 20, 30, 40, [11, 22, 33, 44, [1, 2, 3, 4, 5, 6, 7, 8, 9, 1
 '''
 
 # example 02
-
+'''
 students = ['ram','kunal',['arun',['vijay','om'],'jayesh'],'kiran']
 print(students)
 
@@ -80,3 +80,6 @@ print(students) # ['ram', 'sham', 'kunal', ['arun', 'varun', ['vijay', 'om'], 'j
 # om > sai
 students[3][2].append('sai')
 print(students) # ['ram', 'sham', 'kunal', ['arun', 'varun', ['vijay', 'om', 'sai'], 'jayesh', 'yash'], 'kiran', 'roshan']
+
+'''
+

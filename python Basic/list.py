@@ -86,7 +86,12 @@ print(i)
 # 3.extend:
         #  it adds iterables to the perticular index (like adding list or dict , tuple , set , string)
         #  it only takes iterabls
-''''''
+'''
+numbers = [10, 20, 30, 40, [11, 22, 33, 44, [1, 2, 3, 4, 5, 6, 7], 55, 66, 77, 88], 50, 60, 70, 80]
+numbers[4][4].extend(a)
+print(numbers)
+
+'''
 
 
-
+# how to delete data from list
