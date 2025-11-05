@@ -43,4 +43,19 @@ print(add)
 # so at the function we can make lambda function to make it small and redable
 
 # eg with normal function
+'''
+numbers = [23, 87, 45, 12, 34, 59, 76, 8, 51, 29]
 
+def gt(aaa):
+    if aaa > 50:
+        return True
+    else:
+        return False
+
+print(list(filter(gt,numbers)))
+'''
+
+# eg with lambda function
+
+numbers = [23, 87, 45, 12, 34, 59, 76, 8, 51, 29]
+print(list(filter(lambda aaa :aaa > 50 ,numbers)))
