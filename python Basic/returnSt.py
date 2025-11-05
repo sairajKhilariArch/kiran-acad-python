@@ -18,3 +18,19 @@ def reverce_string(string):
     return st
 
 print(reverce_string("hello"))
+
+
+
+
+
+
+
+
+
+
+
+def details(**kwargs) :
+    result = ''
+    for k,v in kwargs.items():
+        result = result + j
+        
