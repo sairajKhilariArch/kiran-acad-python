@@ -57,5 +57,7 @@ print(list(filter(gt,numbers)))
 
 # eg with lambda function
 
+'''
 numbers = [23, 87, 45, 12, 34, 59, 76, 8, 51, 29]
 print(list(filter(lambda aaa :aaa > 50 ,numbers)))
+'''
