@@ -61,3 +61,26 @@ print(list(filter(gt,numbers)))
 numbers = [23, 87, 45, 12, 34, 59, 76, 8, 51, 29]
 print(list(filter(lambda aaa :aaa > 50 ,numbers)))
 '''
+
+
+
+
+
+# EG
+
+# emails = ['raj@email.com','raj@email.','raj@.com','sham@email.com','sai@email.com']
+# print(list(filter(lambda emailss : emailss.endswith("email.com"),emails)))
+
+
+'''
+numbers = {'sahil':23,'soham': 87, 'sji':45, 'dv':12, '3rtb':34, 'rbtttt2t':59, 'rtbrt':76, 'rwtbtb':8, 'rbt':51, 'rwbtb':29}
+print(list(filter(lambda name :numbers[name] >= 50 ,numbers)))
+'''
+
+'''
+numbers = {'sahil':23,'soham': 87, 'sji':45, 'dv':12, '3rtb':34, 'rbtttt2t':59, 'rtbrt':76, 'rwtbtb':8, 'rbt':51, 'rwbtb':29}
+print(dict(filter(lambda t : t[1]>50, numbers.items() )))
+'''
+
+
+
