@@ -83,4 +83,8 @@ print(dict(filter(lambda t : t[1]>50, numbers.items() )))
 '''
 
 
+emp = {'kunal':52000,'vishal':85020,'sai':74100,'sunil':6305}
+print(dict(filter(lambda t : (t[1]>50000) ,emp.items() )))
+
+
 
