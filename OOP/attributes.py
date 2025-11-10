@@ -22,6 +22,6 @@ class Student :
         self.city = ci
 
 
-st_1 = Student("sairj","ss","pune")
+st_1 = Student("sairj",52,"pune")
 
 print(st_1.age)
