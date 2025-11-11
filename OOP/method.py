@@ -4,11 +4,11 @@
 
                 # ? there are 3 type of methods in class(oop)
 
-                    1.instance method
+                    # ^ 1.instance method
 
-                    2.class method
+                    # ^ 2.class method
 
-                    3.static method
+                    # ^ 3.static method
 
 # * 1.Instance Method:
                         # ! object level => Instance attributes
