@@ -96,3 +96,7 @@ print(s1.details())
 # &        paid fees: 0
 
 '''
+
+
+
+
