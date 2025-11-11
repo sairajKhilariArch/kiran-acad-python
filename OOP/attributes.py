@@ -8,11 +8,13 @@
                 # their are various type of attributes:
                     # ? 1.instance attributes
 
-                    # 2.class attributes
+                    # : 2.class attributes
 
                     # 3.local attributes
 
-
+'''
+// TODO: 
+'''
 
 class Student :
 
