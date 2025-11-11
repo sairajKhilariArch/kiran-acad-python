@@ -1,20 +1,47 @@
-#  ATTRIBITES:
-                # ATTRIBUTES are the data members and variables associateds the class or an object
+# 
+# * ATTRIBITES:
+                # ! ATTRIBUTES are the data members and variables associateds the class or an object
 
-                # attributes means veriables
+                #? attributes means veriables
 
-                #  attributes store properties of the class or object
+                # ? attributes store properties of the class or object
 
-                # their are various type of attributes:
-                    # ? 1.instance attributes
+                # ? their are various type of attributes:
+                    # ^ 1.instance attributes
 
-                    # : 2.class attributes
+                    # ^ 2.class attributes
 
-                    # 3.local attributes
+                    # ^ 3.local attributes
 
-'''
-// TODO: 
-'''
+
+# * 1.Instance Attributes:                        
+                        
+
+
+
+
+
+
+# * 2.Class Attributes:
+
+
+
+
+
+
+
+
+# * 3.Local Attributes:
+
+
+
+
+
+
+
+
+
+
 
 class Student :
 
