@@ -50,12 +50,28 @@ class Student:
 
 
     def details(self) :
-        detail = {'''
+        detail = f'''
         {Student.institute}
-
+        {self.name}
+        {self.age}
+        {self.batch_no}
+        {Student.course}
+        total fees: {self.post_fees['t_fee']},
+        remaining fees: {self.post_fees['r_fees']}, 
+        paid fees: {self.post_fees['p_fees']}
+        {Student.trainer}
             '''
-        }
         return detail
 s1 = Student('ajay',23,9352)
 s2 = Student('vijay',12,5522)
-print(s1.details())
+print(s1.details())    
+'''# ^        The kiran Academy
+# ^        ajay
+# ^        23
+# ^        9352
+# ^        Data Science
+# ^        total fees: 0,
+# ^        remaining fees: 0, 
+# ^        paid fees: 0
+# ^        Vaibhav Patil
+        '''
