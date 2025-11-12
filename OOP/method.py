@@ -37,7 +37,7 @@ class Student:
     #? class attributes
     institute = "The kiran Academy"
     course = "Data Science"
-    fees = 40000
+    course_fees = 40000
     trainer = "Vaibhav Patil"
 
     def __init__(self,nm,ag,bn):
@@ -46,7 +46,7 @@ class Student:
         self.age = ag
         self.marks = {}
         self.batch_no = bn
-        self.post_fees = {'t_fee' : 0,'r_fees' : 0,'p_fees':0}
+        self.post_fees = {'t_fees' : 0,'r_fees' : 0,'p_fees':0}
 
 
     def details(self) :
@@ -57,7 +57,7 @@ class Student:
         Batch Number :{self.batch_no}
         Course :{Student.course}
         Trainer no :{Student.trainer}
-        total fees: {self.post_fees['t_fee']},
+        total fees: {self.post_fees['t_fees']},
         remaining fees: {self.post_fees['r_fees']}, 
         paid fees: {self.post_fees['p_fees']}
         
@@ -66,15 +66,33 @@ class Student:
 
 
 
-        def cal_total_fees(self,dis):
-            dp = Student.fees*dis/100
-            tfees = Student.fees-dp
-            self.post_fees['t_fee'] =tfees
-            print('total fees after dis:',tfees)
-            postfees =eval(input("enter fees amount : "))
-            self.post_fees['p_fees'] = postfees
-            r
-
+    def cal_total_fees(self,dis):
+        dp = Student.course_fees*dis/100
+        tfees = Student.course_fees-dp
+        self.post_fees[tfees] = tfees
+        print('Total fees after dis:',tfees)
+        pfees = eval(input("What Amount of Sum Fees You Would Like To Pay :"))
+        self.post_fees['p_fees'] = pfees
+        rfees = tfees - pfees
+        self.post_fees['r_fees'] = rfees
+        
+        return (f"For the {dis}% Discount on course fee and \n you have paid {pfees} rupees \n of which your Total remaining fees are {rfees}")
+    
+    
+    @classmethod
+    def update_course_fees(clself,amount) :
+        clself.course_fees = amount
+        
+        return 'Done :New fee amount has been updated'
+        
+    
+    def change_batch(self,n_batch_no) :
+        print('Your batch is  changeing......')
+        self.batch_no = n_batch_no
+        
+        return 'Done :Your batch has been changed'
+    
+    
 
 
 
@@ -83,7 +101,17 @@ class Student:
 
 s1 = Student('ajay',23,9352)
 s2 = Student('vijay',12,5522)
-print(s1.details())   
+
+
+# print(s1.change_batch(1010))
+
+# print(s1.update_course_fees(10000))
+
+
+# print(s1.cal_total_fees(10))
+
+
+# print(s1.details())   
 ''' 
 # &        The kiran Academy
 # &        NAME :ajay
