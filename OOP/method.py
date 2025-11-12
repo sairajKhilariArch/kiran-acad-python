@@ -87,12 +87,39 @@ class Student:
         
     
     def change_batch(self,n_batch_no) :
-        print('Your batch is  changeing......')
+        print('Your batch is  changing......')
         self.batch_no = n_batch_no
         
         return 'Done :Your batch has been changed'
     
     
+    def update_new_test_marks(self,tname,tmarks) :
+        print('Your new test and new marks are being added......')
+        
+        self.marks[tname] = tmarks
+        
+        return 'Done: Your new test and new marks have been added'
+    
+    def test_persentage(self) :
+        marks = list(self.marks.values())
+        smarks =sum(marks)
+        lmarks = len(marks)
+        per = (smarks * lmarks)/100
+        self.persentage = per
+        
+        return 'Persentage of all the tests are ', per
+    
+    
+    def pass_or_fail(self):
+        per = self.persentage
+        if per >= 75 :
+            return 'you are pass with flying persentage'
+        elif per>=35 :
+            return 'you are pass'
+        else :
+            return 'you are fail'
+
+
 
 
 
@@ -101,6 +128,28 @@ class Student:
 
 s1 = Student('ajay',23,9352)
 s2 = Student('vijay',12,5522)
+
+
+
+
+s1.update_new_test_marks("Data Structures", 92)
+s1.update_new_test_marks("Algorithms", 88)
+s1.update_new_test_marks("Object-Oriented Programming", 95)
+s1.update_new_test_marks("Database Design", 85)
+s1.update_new_test_marks("Web Development", 90)
+s1.update_new_test_marks("System Design", 87)
+s1.update_new_test_marks("Operating Systems", 83)
+s1.update_new_test_marks("Computer Networks", 86)
+s1.update_new_test_marks("Software Testing", 91)
+s1.update_new_test_marks("API Development", 94)
+
+
+print(s1.test_persentage())
+
+
+print(s1.pass_or_fail())
+
+
 
 
 # print(s1.change_batch(1010))
