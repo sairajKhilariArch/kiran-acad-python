@@ -4,20 +4,37 @@
 
             #?  Inheritance is one of the fundamental concepts in Object-Oriented Programming (OOP).
             
-            # ?It allows a class (called a child class or subclass) to inherit properties and methods from another class (called a parent class or superclass).
+            #? It allows a class (called a child class or subclass) to inherit properties and methods from another class (called a parent class or superclass).
             
-            # ?Inheritance allows for code reuse and establishes a relationship between the parent and child classes. The child class can use the functionalities of the parent class and also add its own unique behaviors.
+            #? Inheritance allows for code reuse and establishes a relationship between the parent and child classes. The child class can use the functionalities of the parent class and also add its own unique behaviors.
 
-# *2)what are Key Features of Inheritance?
+#* 2)what are Key Features of Inheritance?
 
-    # *Code Reusability:
+    #* Code Reusability:
     
-            # ?The child class can inherit methods and properties from the parent class, the need to rewrite common functionality.
+            #? The child class can inherit methods and properties from the parent class, the need to rewrite common functionality.
             
-    # *Extensibility:
+    #* Extensibility:
     
-            # ?The child class can add or override methods and properties to extend or customize the behavior of the parent class.
+            #? The child class can add or override methods and properties to extend or customize the behavior of the parent class.
             
             
-            
+3)what are types of Inheritance??
+
+Types of Inheritance in Python
+
+    a)Sing1e Inheritance:
+        A subclass inherits from ne SUPER class.
+            The Kiran Academy Z
+        # Parent Class
+            class Device:
+                init (self, brand):
+                def
+self. brand =
+brand
+def
+print(f"Device Brand:
+# Child Class
+class Smartphone(Device):
+{self. brand}" )
 '''
