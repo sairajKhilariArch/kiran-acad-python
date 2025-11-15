@@ -106,3 +106,54 @@ class student:
 
 # print(e1.display_details())
 
+
+
+
+
+
+# ! Bank Account Management
+
+
+class BankAccount :
+    
+
+    def __init__(self,an,hna,bal):
+        self.account_number = an
+        self.holder_name = hna
+        self.balance = bal
+
+    def Deposit_ammount(self,amo):
+        add_amo = amo
+        self.balance += add_amo
+
+        return 'done' 
+
+    def Withdrow_ammount(self,amo) :
+        wamo = amo
+        if wamo <= self.balance:
+            self.balance -= wamo
+            return 'withrow done'
+        else :
+            return 'no amount withrowable as less balance'
+
+    def current_balance(self):
+        return f'current balance in the account is ',{self.balance}
+
+
+    def account_details(self) :
+        detail = f'''
+
+        ---------------------------Account Detail------------------------------------
+        Account Number : {self.account_number}
+        Account Holder Name : {self.holder_name}
+        Account Balance : {self.balance}
+        '''
+        return detail
+
+
+
+ah1 = BankAccount(8520,'sairaJ',50000)
+
+print(ah1.Deposit_ammount(50000))
+print(ah1.Withdrow_ammount(25000))
+print(ah1.account_details())
