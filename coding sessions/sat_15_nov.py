@@ -169,3 +169,67 @@ class student:
 
 # ! Library Management System ---------------------------------------------------------------------------------
 
+
+
+class Library :
+
+    Library_Nmae = 'The Sairaj Library'
+
+    def __init__(self,):
+        self.Books = {}
+        self.readers = {}
+
+    
+    def add_book(self):
+        # Bna,co
+        Bno = eval(input("how many kind of books do you want to add"))
+        bnameee = []
+        bnameee = self.Books.keys() 
+        for i in range(Bno):
+            bname = input("what is the Book name")
+            if bname in bnameee:
+                print("book alrady exist")
+                bno = eval(input("how many books do you want to add"))
+                self.Books[bname] += bno
+            else :
+                self.Books[bname] = 0
+                bno = eval(input("how many books do you want to add"))
+                self.Books[bname] += bno
+
+
+        return self.Books
+
+    def remove_books(self) :
+
+        Bno = eval(input("how many kind of books do you want to remove"))
+        bnameee = []
+        bnameee = self.Books.keys() 
+        for i in range(Bno):
+            bname = input("what is the Book name")
+            if bname in bnameee:
+                bno = eval(input("how many books do you want to remove"))
+                self.Books[bname] -= bno
+            else :
+                print('book does not exist')
+
+        return self.Books
+
+    def Display_Books(self) :
+        print('*'*103)
+        print(f'|{'Books Name':^50}|{'Books Count':^50}|')
+        print('*'*103)
+        for bname in self.Books :
+            print(f'|{bname:^50}|{self.Books[bname]:^50}|')
+            print('*'*103)
+
+
+
+
+
+
+bb1 = Library()
+
+print(bb1.add_book())
+# print(bb1.remove_books())
+print(bb1.Display_Books())
+
