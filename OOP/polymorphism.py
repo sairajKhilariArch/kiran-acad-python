@@ -32,24 +32,24 @@
                     
                     
 
-class hotel :
+# class hotel :
     
-    def __init__(self,nm,rt ):
-        self.name = nm
-        self.rent = rt 
+#     def __init__(self,nm,rt ):
+#         self.name = nm
+#         self.rent = rt 
         
         
-    def __gt__(self,other) :
+#     def __gt__(self,other) :
         
         
-        return grater
+#         return grater
         
         
-h1 = hotel('h11',2000)
-h2 = hotel('h2',20000)
+# h1 = hotel('h11',2000)
+# h2 = hotel('h2',20000)
 
 
-print(h1.__gt__(h2)) 
+# print(h1.__gt__(h2)) 
 
  
                     
@@ -71,23 +71,23 @@ print(h1.__gt__(h2))
                         
                         
                  
-class Student :
+# class Student :
     
-    def __init__(self,nm):
-        self.name = nm
+#     def __init__(self,nm):
+#         self.name = nm
  
 
-    def __init__(self,nm,rt,id ):
-        self.name = nm
-        self.rent = rt   
-        self.id = id
+#     def __init__(self,nm,rt,id ):
+#         self.name = nm
+#         self.rent = rt   
+#         self.id = id
 
-    def __init__(self,nm,rt ):
-        self.name = nm
-        self.rent = rt    
+#     def __init__(self,nm,rt ):
+#         self.name = nm
+#         self.rent = rt    
 
 
-s1 = Student('svsfbbd',520) #^ here it too 2 argument as the last or say most recent one method was writtten with not 1 no 3 but 2 parameters 
+# s1 = Student('svsfbbd',520) #^ here it too 2 argument as the last or say most recent one method was writtten with not 1 no 3 but 2 parameters 
 
 
 
