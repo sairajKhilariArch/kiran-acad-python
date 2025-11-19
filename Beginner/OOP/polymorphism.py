@@ -53,7 +53,7 @@
 
 # print(h1.__gt__(h2)) 
 
- 
+
                     
 
 
@@ -72,12 +72,12 @@
                         # * Example:
                         
                         
-                 
+
 # class Student :
     
 #     def __init__(self,nm):
 #         self.name = nm
- 
+
 
 #     def __init__(self,nm,rt,id ):
 #         self.name = nm
@@ -128,7 +128,7 @@ class Current_account(Saving_account) :
             return 'done'
         else :
             return 'insufficiant balance'    
-       
+
 s1 = Saving_account('sairaj',74108520,8888888888)
 
 
@@ -137,6 +137,8 @@ class Counter :
     def __init__(self):
         self.__count = 0
         
-    def 
+    
 
 
+class hello :
+    pass
