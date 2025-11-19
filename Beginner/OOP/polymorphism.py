@@ -131,11 +131,6 @@ class Current_account(Saving_account) :
        
 s1 = Saving_account('sairaj',74108520,8888888888)
 
-zdb
-zbxzcb
-xzcbxzcbb
-hhg
-
 
 class Counter :
     
@@ -145,7 +140,3 @@ class Counter :
     def 
 
 
-xc
-
-
-xcfcbf
