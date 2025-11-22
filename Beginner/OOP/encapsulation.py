@@ -54,7 +54,7 @@ z.inc()
 
 z.inc()
 
-z.𝗱𝗲𝗰()
+z.dec()
 
 𝗽𝗿𝗶𝗻𝘁(𝘇.tcount())
 
@@ -70,3 +70,30 @@ z.𝗱𝗲𝗰()
             # ? get the  value of private attribute
             
             
+
+
+
+class Student:
+    
+    def __init__(self,na,ag):
+        self.__name = na
+        self.__age = ag
+        
+        
+    def name(self):
+        return {self.__name}
+    
+    def age(self):
+        return {self.__age}
+    
+    
+    def set_name(self,sna):
+        if isinstance(sna,str) and sna.isalpha():
+            self.__name =sna
+        else :
+            print("invalid name")
+            
+    def set_age(self,sag) :
+        if isinstance(sag,int) and sag>0 and sag<100 :
+            pass
+        

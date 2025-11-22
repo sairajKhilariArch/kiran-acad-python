@@ -1,36 +1,33 @@
-#-----------------------------------------------#
-#  write a question input and sum o it 
+# -----------------------------------------------#
+#  write a question input and sum o it
 
-#------------------------------------------------#
+# ------------------------------------------------#
 
 
-#--------------------------------------------------#
-# check i number is palindrome or not.....using  loops 
-'''
+# --------------------------------------------------#
+# check i number is palindrome or not.....using  loops
+"""
 sen = eval(input("write a palindrome number"))
 a ={}
 for i in sen :
     a = i+a
     print (a)
 
-'''
+"""
 
 # ---------------------------------------- #
 
 
 # ----------------------------------------#
 
-# how many character are in the the name or sentence  
-
-
-
+# how many character are in the the name or sentence
 
 
 # ---------------------------------------------- #
 
 # ---------------------------------------------- #
-# write a program i a number is prime or not 
-'''
+# write a program i a number is prime or not
+"""
 b = 55
 is_prime(b)
 
@@ -49,7 +46,7 @@ def is_prime(a):
     
 
 
-'''
+"""
 
 
 # ----------------------------------------------------- #
@@ -57,7 +54,7 @@ def is_prime(a):
 # ----------------------------------------------------- #
 
 # all prime number betewwn the all number user enter
-'''
+"""
 in_between_user = 20
 
 
@@ -67,29 +64,29 @@ def in_between_all_number_prime(a) :
     for i range(2,num)
         
 
-'''
+"""
 # ---------------------------------------------------------- #
 
-# perect number 
+# perect number
 
 input_user_number = 20
 perect_number(input_user_number)
+
+
 def perect_number(a):
     perfect = []
     num = a
-    
-    for b in range (1..num):
+
+    for b in range((1.0).num):
         sum = 0
-        
-        for i in range (1..b):
+
+        for i in range((1.0).b):
             if num % i == 0:
                 sum = sum + i
-        if sum == num :
+        if sum == num:
             perfect.append(num)
 
     print("perfect number is ")
-            
-
 
 
 # -------------------------------------------------- #
@@ -98,14 +95,3 @@ def perect_number(a):
 # -----------------------------------------------------#
 
 # write a program to find all per
-
-
-
-
-
-
-
-
-
-
-
