@@ -198,13 +198,62 @@ def Q10_dict():
         if j <=25000:
             k = j * 20 / 100
             j = j-k
-            product_sel[i] = j
+        
         else:
             k = j * 10 / 100
             j = j-k
-            product_sel[i] = j
+        
+        product_sel[i] = j
     
     print(product_sel)
 
 
-Q10_dict()
+# ? 11. WAP to len of string with out using built in len fun
+
+def Q11_len():
+    a = input("give me a sting : ")
+    b = 0
+    for i in a:
+        b = b + 1
+    print(f"total len of {a} string is {b}")
+
+
+
+# ? 12.WAP to cal number of vowels in giving string
+
+def Q12_vowels():
+    a = input("give me a sting : ")
+    b = 0
+    for i in a:
+        if  i in ('a','e','i','o','u'):
+            b = b + 1
+    print(f"total no. of vowels in {a} is {b}")
+
+
+
+# ? 13. WAP to reverse string
+
+def Q13_rev_string():
+    a = input("give me a sting : ")
+    b = ""
+    for i in a:
+            b = i+ b
+    print(f"reverse string of {a}is{b}")
+
+
+
+# ? 14. WAP to check a string is palindrom or not 
+
+def Q14_pal():
+    a = input("give me a sting : ")
+    b = ""
+    for i in a:
+            b = i+ b
+    if a == b :
+        print(f"{a} is a palindrome")
+    else :
+        print(f"{a} is not a palindrome")
+
+
+
+# ? 15.
