@@ -44,7 +44,7 @@ def Q4():
         print("it is not a valid string")
 
 
-# ? Q5 Wap to check length of given string if length is more than 8 then valid string otherwise its invalid if that string contain white space then also it is invalid should contain a degit
+# ? Q5 Wap to check length of given string if length is more than 8 then valid string otherwise its invalid if that string contain white space then also it is invalid should contain a DIGIT
 
 
 def Q5():
@@ -70,7 +70,7 @@ def Q5_ver2():
         print("it is not a valid string")
 
 
-# ? Q6 Wap to check length of given string if length is more than 8 then valid string otherwise its invalid if that string contain white space then also it is invalid should contain a degit one capital char and special char
+# ? Q6 Wap to check length of given string if length is more than 8 then valid string otherwise its invalid if that string contain white space then also it is invalid should contain a DIGIT one capital char and special char
 
 
 def Q6():
