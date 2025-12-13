@@ -189,3 +189,22 @@ def Q9_dict():
 
 
 
+# ? 10.  WAP to print product which price has more than 25k<10%     25k > 20%
+
+def Q10_dict():
+    product_mrp = {'laptop':60000,'mobile':20000,'tv':40000}
+    product_sel = {}
+    for i,j in product_mrp.items():
+        if j <=25000:
+            k = j * 20 / 100
+            j = j-k
+            product_sel[i] = j
+        else:
+            k = j * 10 / 100
+            j = j-k
+            product_sel[i] = j
+    
+    print(product_sel)
+
+
+Q10_dict()
