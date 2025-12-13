@@ -144,4 +144,46 @@ def Q6_sum():
         if i%3==0 & i%4==0:
             a = a+i
     print(a)
-Q6_sum()
+
+
+
+# ? 7. WAP to cal total obtain marks:
+
+def Q7_sum():
+    l = {'math':78,'science':67,'his':90,'hindi':94,'marathi':85}
+    a = 0
+    for i in l.values():
+        a = a+i
+    print(a)
+    
+    
+
+
+
+# ? 8. WAP to cal total obtain percentage:
+
+def Q8_sum():
+    l = {'math':78,'science':67,'his':90,'hindi':94,'marathi':85}
+    a = 0
+    b = 0
+    for i in l.values():
+        a = a+i
+        b = b=1
+    c = b * 100
+    per = (a / c) * 100
+    print(per)
+    
+    
+
+
+# ? 9. WAP to print dic of selling price
+
+def Q9_dict():
+    product_mrp = {'laptop':60000,'mobile':20000,'tv':40000}
+    product_sel = {}
+    for i,j in product_mrp.items():
+        k = j * 15 / 100
+        j = j-k
+        product_sel[i] = j
+    print(product_sel)
+
