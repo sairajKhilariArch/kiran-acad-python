@@ -70,16 +70,14 @@ def Q5_ver2():
         print("it is not a valid string")
 
 
-
 # ? Q6 Wap to check length of given string if length is more than 8 then valid string otherwise its invalid if that string contain white space then also it is invalid should contain a degit one capital char and special char
-
 
 
 def Q6():
     a = input("Give me a string more than 8 characters: ")
 
     if len(a) > 8:
-        
+
         if " " in a:
             print("It is not a valid string")
             return
@@ -93,7 +91,7 @@ def Q6():
                 digit = True
             if ch.isupper():
                 upper = True
-            if ch in '!@#$%^&*()':
+            if ch in "!@#$%^&*()":
                 special = True
 
         if digit and upper and special:
