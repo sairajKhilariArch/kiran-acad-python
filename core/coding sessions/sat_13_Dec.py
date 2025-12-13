@@ -256,4 +256,4 @@ def Q14_pal():
 
 
 
-# ? 15. WAP to 
+# ? 15. WAP to  
