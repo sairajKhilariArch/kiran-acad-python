@@ -187,3 +187,5 @@ def Q9_dict():
         product_sel[i] = j
     print(product_sel)
 
+
+
