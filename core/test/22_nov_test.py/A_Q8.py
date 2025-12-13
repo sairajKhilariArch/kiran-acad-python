@@ -10,5 +10,3 @@ def piramid(a):
 
 piramid(input_user)
 
-git config --global user.email "sairajkhilari191918110+github1@gmail.com"
-git config --global user.name "sairajKhilariArch"
