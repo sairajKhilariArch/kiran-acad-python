@@ -27,21 +27,25 @@
 
 
 .body-nav-div {
-    background-color: rgb(7, 111, 180);
+    background-color: rgba(255, 145, 0, 0.712);
     padding: 10px;
 }
 
 
 
-.content-section{
+.content-section {
     background-color: rgb(33, 165, 88);
     padding: 10px;
-    border-color: rgb(5, 5, 5);
-    border-style:solid  ;
+    border: 2px solid rgb(5, 5, 5);  /* Combined border properties */
+    width: 100%;                    /* Full width */
+    height: 100vh;                  /* Full viewport height */
+    box-sizing: border-box;         /* Include padding/border in size */
+    margin: 0;                      /* Remove default margins */
 }
 
+
 #home-section{
-    background-color: rgb(179, 124, 124);
+    background-color: rgba(0, 0, 0, 0.842);
     padding: 5px;
     border-style:dotted  ;
 }
