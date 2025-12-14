@@ -1,24 +1,50 @@
-/* Using the id */
-#naviga {
-    background-color: rgb(182, 173, 230);
-    padding: 10px;
+
+html {
+    scroll-padding-top: 10%;
+    scroll-behavior: smooth;
 }
-/* Using the class */
+
+
+
+body {
+    margin: 0;
+}
+
+
 .naviga {
-    background-color: rgb(210, 230, 173);
-    padding: 10px;
+    background-color: rgb(19, 184, 206);
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    z-index: 1000;
+    border-style: dashed;
 }
+
 
 
 
 #navigation-line{
-    background-color: rgb(50, 109, 45);
+    background-color: rgb(221, 9, 108);
     padding: 10px;
+    align-items:stretch;
+    align-self: center;
+    justify-content: space-evenly
 }
 
-#navigation-line-item{
-    background-color: rgb(201, 57, 14);
+#nav-item{
+    background-color: rgb(104, 165, 34);
     padding: 10px;
+    align-items:normal;
+    border: 10px;
+    justify-content: space-evenly
 }
 
 
@@ -28,7 +54,7 @@
 
 .body-nav-div {
     background-color: rgba(255, 145, 0, 0.712);
-    padding: 10px;
+    margin-top: 70px;
 }
 
 
@@ -36,11 +62,11 @@
 .content-section {
     background-color: rgb(33, 165, 88);
     padding: 10px;
-    border: 2px solid rgb(5, 5, 5);  /* Combined border properties */
-    width: 100%;                    /* Full width */
-    height: 100vh;                  /* Full viewport height */
-    box-sizing: border-box;         /* Include padding/border in size */
-    margin: 0;                      /* Remove default margins */
+    border: 2px solid rgb(5, 5, 5);
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+
 }
 
 
@@ -48,4 +74,9 @@
     background-color: rgba(0, 0, 0, 0.842);
     padding: 5px;
     border-style:dotted  ;
+    padding-top: 0%;
+
+}
+
+#about-section {
 }
