@@ -6,7 +6,7 @@
 /* Using the class */
 .naviga {
     background-color: rgb(210, 230, 173);
-        padding: 10px;
+    padding: 10px;
 }
 
 
@@ -19,4 +19,29 @@
 #navigation-line-item{
     background-color: rgb(201, 57, 14);
     padding: 10px;
+}
+
+
+
+
+
+
+.body-nav-div {
+    background-color: rgb(7, 111, 180);
+    padding: 10px;
+}
+
+
+
+.content-section{
+    background-color: rgb(33, 165, 88);
+    padding: 10px;
+    border-color: rgb(5, 5, 5);
+    border-style:solid  ;
+}
+
+#home-section{
+    background-color: rgb(179, 124, 124);
+    padding: 5px;
+    border-style:dotted  ;
 }
