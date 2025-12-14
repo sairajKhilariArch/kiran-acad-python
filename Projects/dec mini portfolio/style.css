@@ -1,22 +1,22 @@
 /* Using the id */
 #naviga {
-  background-color: rgb(182, 173, 230);
-  padding: 10px;
+    background-color: rgb(182, 173, 230);
+    padding: 10px;
 }
 /* Using the class */
 .naviga {
-  background-color: rgb(210, 230, 173);
-  padding: 10px;
+    background-color: rgb(210, 230, 173);
+        padding: 10px;
 }
 
 
 
 #navigation-line{
-  background-color: rgb(50, 109, 45);
-  padding: 10px;
+    background-color: rgb(50, 109, 45);
+    padding: 10px;
 }
 
 #navigation-line-item{
-  background-color: rgb(201, 57, 14);
-  padding: 10px;
+    background-color: rgb(201, 57, 14);
+    padding: 10px;
 }
