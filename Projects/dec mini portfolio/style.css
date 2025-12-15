@@ -1,7 +1,7 @@
 
 html {
     scroll-padding-top: 10%;
-    scroll-behavior: smooth;
+    scroll-behavior:auto;
 }
 
 
