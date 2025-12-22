@@ -1,0 +1,65 @@
+show databases;
+use 1293db;
+show tables;
+
+create table Std_info(
+		roll_no int ,
+        sname varchar(50),
+        email varchar(30),
+        DOB  date,
+        Admission_year year,
+        mobile_no int );
+        
+Show tables;
+
+describe std_info;
+		-- or 
+desc std_info;
+
+-- Data Insert Syntax 
+-- insert into table_name (col1, col2, col3,...coln) values (val1 ,val2, val3,....valn);  
+    
+insert into std_info (roll_no , sname , email, DOB ,Admission_year,mobile_no)
+	values (101 ,"pratik Kale", "pratik@gmail.com",'2002-05-25',2018 , 1234567891);
+    
+select * from std_info;
+
+select roll_no as sid  , sname as student_name, admission_year from std_info;
+
+select roll_no  student_id  , sname  home_name, admission_year from std_info;
+
+
+insert into std_info (roll_no , sname , email ,Admission_year,mobile_no)
+	values (102 ,"Roshan Patil", "roshan@gmail.com",2018 , 1234567891);
+
+select * from std_info;
+
+desc std_info;
+
+
+insert into std_info values 
+       (104 ,"Deepak Kumar", "roshani@gmail.com",'2002-05-25',2018 , 1234567891),
+	   (105 ,"Yashwant thakre", "roshani@gmail.com",'2002-05-25',2018 , 1234567891),
+       (106 ,"rohan kumar", "roshani@gmail.com",'2002-05-25',2018 , 1234567891);
+
+select * from std_info;
+
+-- update query Syntax\
+-- update  table_name set col_name = new_values where clause;
+
+update  std_info 
+set sname = 'yash patil' , admission_year = 2015, DOB = '1998-05-15' 
+where roll_no = 102;
+
+select * from std_info;
+
+
+-- delete query syntax
+-- delete form table_name where clause
+
+delete from std_info where roll_no = 102;
+
+select * from std_info;
+
+select * from std_info where sname = 'pratik Kale';
+

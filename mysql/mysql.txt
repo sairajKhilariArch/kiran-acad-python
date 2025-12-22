@@ -1,0 +1,112 @@
+##  Database
+       A database is an application that stores the organized collection of records. 
+       It can be accessed and manage by the user very easily. 
+       It allows us to organize data into tables, rows, columns, and indexes to find the relevant information very quickly. 
+       Each database  performing database operations such as creating, managing, accessing, and searching the data it stores. 
+       Today, many databases available like MySQL,  Oracle, MongoDB, PostgreSQL, SQL Server, etc. 
+
+## Importance of Databases for Different Technology
+       1. Databases for Web Development
+	  Web applications rely heavily on databases to store and manage user data, content, and transactions. 
+	  Whether it is a blog or a large e-commerce platform, developers typically use:
+	  Popular Databases: MySQL, PostgreSQL, MongoDB, Firebase
+	  Use Case: Dynamic content, authentication, product catalogs
+
+       2. Databases for Data Science
+          Data scientists need flexible querying, data aggregation, and easy integration with tools like Python and R.
+          Popular Databases: PostgreSQL, MongoDB, Apache Hive, Snowflake
+          Use Case: Feature extraction, exploratory analysis, modeling datasets
+
+       3. Databases for Artificial Intelligence
+          AI systems depend on structured, unstructured, and streaming data for model training and predictions.
+          Popular Databases: MongoDB, Apache Cassandra, Google BigQuery, AWS S3 (data lake)
+          Use Case: Storing training datasets, real-time inference, model feedback loops
+
+       4. Database for Cloud Computing
+          In cloud-native environments, databases must support autoscaling, high availability, and service integration.
+          Popular Databases: Amazon Aurora, Google Cloud Spanner, Microsoft Azure Cosmos DB
+          Use Case: SaaS platforms, distributed apps, serverless environments
+
+## Types of Databases            
+     1.  Relational Database
+           This database is based on the relational data model.
+           which stores data in the form of rows(tuple) and columns(attributes), and together forms a table(relation). 
+           A relational database uses SQL for storing, manipulating, as well as maintaining the data. 
+           Each table in the database carries a key that makes the data unique from others. 
+           Examples of Relational databases are MySQL, Microsoft SQL Server, Oracle, etc.
+
+     2. NoSQL Database
+          Non-SQL/Not Only SQL is a type of database that is used for storing a wide range of data sets. 
+          It is not a relational database as it stores data not only in tabular form but in several different ways.
+          Examples include MongoDB (document store), Redis (key-value store), Neo4j (graph database), and Cassandra (wide-	  column store).
+
+
+## MySQL
+     MySQL is a relational database management system based on the Structured Query Language. (SQL)
+     MySQL is currently the most popular database management system software used for managing the relational database. 
+     It is open-source database software, which is supported by Oracle Company.
+     It is fast, scalable, and easy to use database management system in comparison with Microsoft SQL Server and Oracle     
+     Database. 
+
+
+## How MySQL Works
+
+                                                          send Request
+                                                        ------------------------->         
+                                   client                                                      Database 
+                                                        <------------------------      
+                                                           return Response                                   
+
+##  MySQL Data Types
+      1. Numeric Data Type
+         INT 
+         BIGINT
+         FLOAT( 1 , 2)                                                 
+         DOUBLE( size , d)
+
+      2. Date and Time Data Type
+         YEAR :  yy / yyyy
+         DATE  :  'yyyy-mm-dd'
+         TIME :  'HH:MM:SS'
+         DATETIME :   'yyyy-mm-dd  hh:mm:ss'.
+
+      3. String Data Types 
+          CHAR(size)
+          VARCHAR(size)
+          TEXT(size)
+
+## SQL Commands  
+     Types of SQL Commands
+         1. DDL (Data Definition Language) :                                                            
+             Create    : Creates a new table, a view on a table, or some other object in the database.
+             Drop      : Deletes an entire table, a view of a table, or other objects in the database
+             Alter     : Modifies an existing database object, such as a table
+             Truncate  : Removes all records from a table but keeps the table structure intact.
+             Rename    : It is used to change the name of an existing database object, such as a table
+
+         2. DML (Data Manipulation Language) :  
+             Insert  : Creates a record
+             Update  : Modifies records.
+             Delete  : Deletes records.
+
+         3. DQL (Data Query Language ) : 
+             Select
+
+	 4. DCL (Data Control language):
+	     GRANT   : Gives a privilege to the user.
+	     REVOKE  : Takes back privileges granted by the user
+
+## MySQL Show Database
+      Using this Command
+           SHOW DATABASES; 
+
+## MySQL Create Database
+      Using this  Command
+           CREATE DATABASE database_name;  
+                               
+ 
+## MySQL SELECT Database
+      Using this Command 
+           USE database_name; 
+
+

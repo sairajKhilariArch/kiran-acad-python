@@ -1,0 +1,111 @@
+##  MySQL Constraints
+      The constraint in MySQL is used to specify the rule that allows or restricts what values/data will be stored in the table. They provide a suitable method to ensure data accuracy and integrity inside the table.It also helps to limit the type of data that will be inserted inside the table. 
+
+
+Types of MySQL Constraints
+1. NOT NULL : 
+           NULL means empty, i.e., the value is not available. Whenever a table's column is declared as NOT NULL. the value for that column cannot be empty for any of the table's records. NULL does not mean zero. NULL means empty column, not even zero.
+
+2. CHECK :
+          Whenever a check constraint is applied to the table's column, and the user wants to insert the value in it.then the value will first be checked for certain conditions before inserting the value into that column.
+
+3. DEFAULT : 
+          Whenever a default constraint is applied to the table's column, and the user has not specified the value.to be inserted in it,  then the default value which was specified while applying the default constraint will be inserted  into that particular column.                                                                                                                                                                                                                                                                                                        
+
+4.PRIMARY KEY  :
+             PRIMARY KEY Constraint is a combination of NOT NULL and Unique constraints. NOT NULL constraint and a UNIQUE constraint together forms a PRIMARY constraint.The column to which we have applied the primary constraint will always contain a unique value and will not allow null values.
+
+5. AUTO_INCREMENT : 
+             ALTER TABLE table_name AUTO_INCREMENT=100;
+
+6. UNIQUE : 
+       Duplicate values are not allowed in the columns to which the UNIQUE constraint is applied.
+       The column with the unique constraint will always contain a unique value.This constraint can be      
+       applied to one or more than one column of a table.    
+
+
+## MySQL ORDER BY  Clause
+        The MYSQL ORDER BY Clause is used to sort the records in ascending or descending order.
+        Syntax : 
+             SELECT expressions  FROM tables ORDER BY expression [ ASC | DESC ];  
+
+## MySQL DISTINCT Clause
+        The DISTINCT clause in MySQL is used with a SELECT statement to return the distinct values      
+        (unique values) from a single or multiple of columns in a table
+        Syntax : 
+            SELECT DISTINCT column1, DISTINCT column2 FROM table_name  ;
+
+##  MySQL Operators
+
+                1. Comparison Operators
+                         Operator	   Description	
+                          =	             Equal to	
+                          >	          Greater than	
+                          <	             Less than	
+                          >=	       Greater than or equal to	
+                          <=	        Less than or equal to	
+                          <>	             Not equal to
+
+                  2. LOGICAL OPERATOR
+                          Operator	   Description	
+                            &&	                AND	
+                            ||	                 OR	
+                             !	                NOT
+
+
+
+## String functions
+
+                CONCAT()	
+                        Returns concatenated string	
+                                     SELECT concat('Ritik' ,'Chaudhari');
+
+                LOWER() /LCASE()	
+                         Converts to in lowercase	
+                                    1. SELECT lcase('RITIK');
+                                    2. SELECT lower('RITIK')                  
+
+                 UPPER()/UCASE()	
+                         Converts to uppercase	
+                                     1. SELECT ucase('ritik');
+                                     2. SELECT upper('ritik')
+
+                 TRIM()	
+                        Removes leading and trailing spaces	
+                                     SELECT TRIM(‘Pratik Chaudhari’) ;
+
+	         LENGTH()	
+                        Returns the length of a string in bytes	
+                                    SELECT LENGTH(‘CANDIDE’) “Length in characters” ;
+
+## Date & Time functions
+	
+                  CURDATE() 
+                       Returns the current date.	
+                                SELECT CURDATE() ;
+
+	           DATE()	
+                       Extracts the date part of a date or date-time expression.	
+                                 SELECT DATE(‘2020-12-31 01:02:03’) ;  time format  HH:MM:Sec:msec
+
+	           MONTH()	
+                       Returns the month from the date passed.	
+                                  SELECT MONTH(‘2020-12-31’) ;   format   yyyy- mm - dd 
+
+	           YEAR()	
+                       Returns the year	
+                                 SELECT YEAR(‘2020-12-31’) ;
+
+	           NOW()	
+                       Returns the time at which the function executes.	
+                                  SELECT NOW() ;
+
+
+
+
+
+
+
+
+
+

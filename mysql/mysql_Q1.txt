@@ -1,0 +1,41 @@
+create table person_info (
+pid int primary key auto_increment,
+pname varcharacter(50) not null,
+mob_no bigint unique,
+paddress char(30) default "Pune",
+age int check (age > 18) );
+
+use 1293db;
+
+show tables;
+
+desc person_info;
+
+alter table person_info add pemail varchar(50) ;
+
+desc person_info;
+
+select * from person_info;
+
+alter table person_info modify pemail varchar(50)  unique ;
+
+desc person_info;
+
+select * from person_info;
+
+alter table person_info drop pemail;
+
+select * from person_info;
+
+alter table person_info add pemail varchar(50) unique after pname;
+
+select * from person_info;
+
+alter table person_info change pemail person_email varcharacter(50) unique;
+
+select * from person_info;
+
+
+alter table person_info rename Human_info;
+
+select * from Human_info;

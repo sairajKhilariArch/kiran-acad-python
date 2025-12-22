@@ -1,0 +1,80 @@
+use 1293db;
+show tables;
+
+create table person_info (
+pid int primary key auto_increment,
+pname varcharacter(50) not null,
+mob_no bigint unique,
+paddress char(30) default "Pune",
+age int check (age > 18) );
+
+desc person_info;
+
+
+insert into person_info (pid , pname,mob_no,paddress,age)
+ values 
+(101,"Roshan",123466812,'Mumbai',23);
+
+select * from person_info;
+
+insert into person_info (pid , pname,mob_no,age)
+ values 
+(103,"Roshan",null,25);
+
+select * from person_info;
+
+-- drop table person_info; 
+
+insert into person_info (pname,mob_no,paddress,age)
+ values 
+("pratik",158963123,'Nasik',29),
+("Chetan",158964189,'Mumbai',28);
+
+select * from person_info;
+
+alter table  person_info auto_increment = 100;
+
+-- order by clause
+select * from person_info order by age desc;
+
+-- distinct clause
+
+select distinct age , pname from person_info;
+
+select * from person_info;
+
+-- operators
+
+select * from person_info where age >= 25;
+
+select * from person_info where pid = 1 or pname = 'Roshan';
+
+select concat('Ritik' ,'Chaudhari') name;
+
+select upper('ritik') as name;
+
+select UCASE('pratik') as sname;
+
+select curdate();
+
+select current_date();
+
+select curtime();
+
+select current_time();
+
+select current_user();
+
+select year('2025-12-6');
+
+select month('2025-12-6');
+
+select monthname('2025-12-6');
+
+select day('2025-12-6');
+
+select dayname('2025-12-6');
+
+select datediff('2025-6-6' , '2025-9-6') as noofdays;
+
+select now();

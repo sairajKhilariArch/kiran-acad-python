@@ -1,0 +1,120 @@
+## MySQL CREATE TABLE
+              A table is used to organize data in the form of rows and columns and used for both storing and displaying records in the structure format. 
+              It is similar to worksheets in the spreadsheet application. 
+              A table creation command requires three things:
+                  Name of the table
+                  Names of fields/column
+                  Definitions for each field
+
+              Syntax :
+                  CREATE TABLE  table_name(  
+                  column_definition1,  
+                  column_definition2,  )
+                                                                                                                    );  
+## MySQL Show Table Data
+             show tables ;
+
+
+
+##  MySQL INSERT Statement
+                 MySQL INSERT statement is used to store or add data in MySQL table within the database. 
+
+                 Syntax :                                    
+                	 INSERT INTO table_name ( field1, field2,...fieldN ) VALUES   ( value1, value2,...valueN ); 
+
+## Select Query  
+            Show data inside the Table 
+                   select  *  from  table_name ;
+
+## MySQL UPDATE Query
+               The UPDATE statement is used with the SET and WHERE clauses.
+	       Syntax : 
+              	  UPDATE table_name SET column_name = new-value [WHERE Clause] ;
+
+## MySQL DELETE Query
+	      Syntax :
+               	  DELETE FROM table_name WHERE condition;  
+
+## MySQL Aliases
+           Aliases are used to give a table, or a column in a table, a temporary name.
+           Aliases are often used to make column names more readable.
+           An alias only exists for the duration of that query.
+           An alias is created with the (AS) keyword.
+	   Syntax :
+		SELECT column_name AS alias_name FROM table_name;
+
+
+
+##  Practice :
+         
+1. Create a database named Hospital.
+
+2. Create a table named doctor_info with the following columns:
+                   doctor_id
+                   doctor_name
+                   doctor_age
+                   doctor_email
+                   doctor_mobno
+                   doctor_city
+
+3. Insert 10 records into the doctor_info table.
+
+4. Create a table named patient_info with the following columns:
+                  patient_bed_no
+                  patient_name
+                  patient_age
+                  patient_email
+                  patient_mobno
+                  patient_city
+
+5. Insert 10 records into the patient_info table.
+
+6. Create a database named Library.
+
+7. Create a table named book_info:
+		book_id
+		book_title
+		book_author
+		book_genre
+		book_published_year
+		book_price
+
+8. Insert 10 records into book_info.
+
+9. Create a table named member_info:
+		member_id
+		member_name		
+		member_email
+		member_mobno
+		member_city
+		membership_date
+
+10. Insert 10 records into member_info.
+
+1. Create Databases  Company
+2. Create Tables In Database company 
+                                  Create Table 1: employees  
+                                             emp_id ,
+                                             first_name ,
+                                             last_name ,
+                                             email,
+                                             mob_no,
+                                             salary ,
+                                              city
+
+3. insert 10 record in employees Table
+4. Update the salary of an employee with employee id =  101  to 50000.
+5. Update the First name of an employee with employee id =  103  to Roshan.
+6. Update the city of the employee with employee id = 102 to Mumbai.
+7. Update the email of the employee with employee id = 104 to abc@gmail.com.
+8. Update the mobile no of the employee with employee id = 106 to 123456987.
+9. Update the last name of the employee with employee id = 105 to Barse.
+
+10. Delete the employee with employee id  = 102.
+11. Delete the employee  with employee first name  = Pratik.
+12. Delete the employee  with employee last name  = Barse.
+13. Delete the employee  with employee mobile number  = 123456987.
+14. Delete the employee  with employee  email =  abc@gmail.com.
+15. Delete the employee  with employee city =  Mumbai.
+16. Delete the employee  with employee Salary =  50000.
+

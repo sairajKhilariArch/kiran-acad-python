@@ -1,0 +1,62 @@
+## MySQL LIMIT Clause
+         The LIMIT clause is used to specify the number of records to return.
+         The LIMIT clause is useful on large tables with thousands of records. 
+         Returning a large number of records can impact performance.
+         Syntax : 
+              SELECT column_name  FROM table_name WHERE condition LIMIT  ;
+
+              SELECT column_name  FROM table_name WHERE condition LIMIT 3 OFFSET 3; 
+
+
+## MySQL GROUP BY Clause
+       The GROUP BY statement groups rows that have the same values into summary rows.
+       The GROUP BY statement is often used with aggregate functions (COUNT(), MAX(), MIN(), SUM(),    
+       AVG()).
+       Syntax :
+        SELECT column_name FROM table_name GROUP BY column_name
+
+## MySQL Having Clause
+        The MySQL HAVING Clause is used to filter grouped rows in a table based on conditions.
+        This clause is used with the GROUP BY clause to group the rows based on one or more colum	and then filter them.based on the conditions specified in the HAVING clause.                                                                      
+	So, the HAVING clause must always be followed by the GROUP BY clause.
+	The HAVING clause was added to MySQL because the WHERE keyword cannot be used with 	aggregate functions such as COUNT(), SUM(), AVG(), etc.
+	This clause is similar to the MySQL WHERE clause. 
+        The difference between both of them is that the WHERE clause filters individual rows in a 	table. whereas the HAVING clause filters grouped rows based on conditions.
+
+         Syntax : 
+               SELECT column1, column2, aggregate_function(column) 
+               FROM table_name 
+               GROUP BY column1, column2, ... 
+               HAVING condition;
+
+
+
+## MySQL ALTER Table
+   MySQL ALTER statement is used when you want to change the name of your table or any tablefield. 
+   It is also used to add or delete an existing column in a table.
+   The ALTER statement is always used with "ADD", "DROP" and "MODIFY" commands according to the         
+   situation.
+
+ 1) ADD a column in the table
+       Syntax:
+           ALTER TABLE table_name  ADD new_column_name column_definition  [ FIRST or  AFTER column_name ];  
+        
+2) MODIFY column in the table
+        The MODIFY command is used to change the column definition of the table.
+        Syntax:
+            ALTER TABLE table_name  MODIFY column_name column_definition ; 
+
+ 4) DROP column in table
+        Syntax:
+           ALTER TABLE table_name  DROP COLUMN column_name;  
+
+5) RENAME column in table
+          Syntax:
+           ALTER TABLE table_name  CHANGE COLUMN old_name  new_name coloumn_decleration
+
+6) RENAME table
+         Syntax:
+	     ALTER TABLE table_name RENAME TO new_table_name;  
+
+
+
