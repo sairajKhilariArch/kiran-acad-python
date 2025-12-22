@@ -1,0 +1,89 @@
+CREATE DATABASE capgemini;
+
+use capgemini;
+
+CREATE TABLE `capgemini`.`employee` (
+  `id` INT NULL,
+  `name` VARCHAR(45) NULL,
+  `profile` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `salary` INT NULL,
+  `age` INT NULL,
+  `experience` INT NULL
+  );
+
+show tables;
+
+insert into `employee` (`id`,`name`,`profile`,`email`,`salary`,`age`,`experience`) values (1,'rani','dev','rani@gmail.com',11000,43,27);
+
+insert into `employee` (`id`,`name`,`profile`,`email`,`salary`,`age`,`experience`) values (2,'raj','test','raj@gmail.com',21000,33,17);
+
+insert into `employee` (`id`,`name`,`profile`,`email`,`salary`,`age`,`experience`) values (3,'radha','test','radha@gmail.com',26000,38,21);
+
+insert into `employee` (`id`,`name`,`profile`,`email`,`salary`,`age`,`experience`) values (4,'raj','dev','raj12@gmail.com',51000,32,12);
+
+insert into `employee` (`id`,`name`,`profile`,`email`,`salary`,`age`,`experience`) values (5,'john','dev','john@gmail.com',51000,39,27);
+
+
+SELECT * FROM capgemini.employee;
+
+
+
+
+
+-- 1. Add branch_location column
+ALTER TABLE `employee` ADD COLUMN `branch_location` VARCHAR(50) NULL;
+
+-- 2. Total salary expenses
+SELECT SUM(`salary`) AS total_salary_expenses FROM `employee`;
+
+-- 3. Max salary from test profile
+SELECT MAX(`salary`) AS max_test_salary FROM `employee` WHERE `profile` = 'test';
+
+-- 4. Average experience
+SELECT AVG(`experience`) AS avg_experience FROM `employee`;
+
+-- 5. Name of highest paid employee
+SELECT `name` FROM `employee` WHERE `salary` = (SELECT MAX(`salary`) FROM `employee`);
+
+-- 6. Name & experience of lowest paid
+SELECT `name`, `experience` FROM `employee` WHERE `salary` = (SELECT MIN(`salary`) FROM `employee`);
+
+-- 7. Employee count
+SELECT COUNT(*) AS total_employees FROM `employee`;
+
+-- 8. Test profile names with salary >25K
+SELECT `name` FROM `employee` WHERE `profile` = 'test' AND `salary` > 25000;
+
+-- 9. Update Radha to support profile
+SET SQL_SAFE_UPDATES = 0;
+UPDATE `employee` SET `profile` = 'support' WHERE `name` = 'Radha';
+SET SQL_SAFE_UPDATES = 1;
+
+-- 10. Second highest salary
+SELECT DISTINCT `salary` FROM `employee` ORDER BY `salary` DESC LIMIT 1 OFFSET 1;
+
+-- 11. Second lowest salary
+SELECT DISTINCT `salary` FROM `employee` ORDER BY `salary` ASC LIMIT 1 OFFSET 1;
+
+-- 12. Average salary for dev profile
+SELECT AVG(`salary`) AS avg_dev_salary FROM `employee` WHERE `profile` = 'dev';
+
+-- 13. Name & salary with lowest experience
+SELECT `name`, `salary` FROM `employee` 
+WHERE `experience` = (SELECT MIN(`experience`) FROM `employee`);
+
+-- 14. Lowest age with max salary (name only)
+SELECT `name` FROM `employee` 
+WHERE `age` = (SELECT MIN(`age`) FROM `employee` WHERE `salary` = (SELECT MAX(`salary`) FROM `employee`));
+
+-- 15. Remove ALL employees (⚠️ DANGER - backs up first)
+CREATE TABLE `employee_backup` AS SELECT * FROM `employee`;
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM `employee`;
+SET SQL_SAFE_UPDATES = 1;
+
+
+
+drop table employee;
+
