@@ -1,0 +1,60 @@
+## MySQL NULL Value And NOT NULL
+        A field with a NULL value is a field with no value. If a field in a table is optional, it is 	possible to insert a new record or update a record without adding a value to this field.
+	Then, the field will be saved with a NULL value. A NULL value is different from a zero value or 	a field that contains spaces. 
+	A field with a NULL value is one that has been left blank during record creation! It is not 	possible to test for NULL values with comparison operators, such as =, <, or <>.
+
+	Syntax : 
+         SELECT column_names FROM table_name WHERE column_name IS NULL;
+
+         SELECT column_names FROM table_name WHERE column_name IS NOT NULL;
+
+
+## MySQL IN And NOT IN OPERATOR
+         The IN operator allows you to specify multiple values in a WHERE clause. The IN operator is a 	  
+         shorthand for multiple OR conditions.
+         Syntax : 
+            SELECT column_name FROM table_name WHERE column_name IN (value1, value2, ...);
+
+            SELECT column_name FROM table_name WHERE column_name NOT IN (value1, value2, ...);
+
+## MySQL BETWEEN And NOT BETWEEN OPERATOR
+         The BETWEEN operator selects values within a given range. The BETWEEN operator is inclusive: 	 
+         begin and end values are included.
+         Syntax : 
+            SELECT column_name  FROM table_name WHERE column_name BETWEEN value1 AND value2;
+
+            SELECT column_name  FROM table_name WHERE column_name NOT BETWEEN value1 AND value2;
+
+## MySQL LIKE OPERATOR
+         There are two wildcards characters  in LIKE operator: The percent sign (%) represents zero, 		 one, or multiple characters The underscore sign (_) represents one, single character
+
+  LIKE Operator	                              Description
+  WHERE Column_name LIKE 'a%'	  :    Finds any values that start with "a"
+  WHERE Column_name LIKE '%a'	  :    Finds any values that end with "a"
+  WHERE Column_name LIKE '%or%'   :    Finds any values that have "or" in any position
+  WHERE Column_name LIKE '_r%'	  :    Finds any values that have "r" in the second position
+  WHERE Column_name LIKE 'a_%'	  :    Finds any values that start with "a" and are at least 2        
+                                       characters in length
+  WHERE Column_name LIKE 'a__%'   :    Finds any values that start with "a" and are at least 3  
+                                       characters in length
+  WHERE Column_name LIKE 'a%o'	  :    Finds any values that start with "a" and ends with "o"
+
+## Subquery
+
+A subquery is a query written inside another SQL query.
+The inner query runs first, and its result is used by the outer query.
+
+📘 Also called Nested Query.
+General Syntax
+SELECT column_name
+FROM table_name
+WHERE column_name OPERATOR (
+    SELECT column_name
+    FROM table_name
+);
+
+
+
+
+
+

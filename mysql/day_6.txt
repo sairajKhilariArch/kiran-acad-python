@@ -1,0 +1,127 @@
+use 1293db;
+
+show tables;
+
+-- drop table std_info;
+
+show tables;
+
+create table std_info (
+sid int primary key,
+sname varchar(250) not null,
+sage int ,
+saddress varchar(250) not null );
+
+show tables;
+
+describe std_info;
+
+insert into std_info (sid, sname, sage, saddress)
+values
+(101,'Pratik',25,'Pune'),
+(102,'Roshan',30,'Mumbai'),
+(103,'Rohan',27,'Nashik'),
+(104,'Deepak',28,'Jalgaon'),
+(105,'Yash',22,'Pune');
+
+select * from std_info;
+
+create table course (
+cid int primary key,
+cname varchar(250) not null,
+sid int not null ,
+foreign key (sid) REFERENCES std_info(sid));
+
+show tables;
+
+alter table course rename course_info;
+
+show tables;
+
+desc course_info;
+
+insert into course_info (cid, cname, sid)
+values
+(1, 'Python development', 101),
+(2, 'Data Science', 102),
+(3, 'Data analytics', 103),
+(4, 'Python development', 104),
+(5, 'MERN Stack', 105),
+(6, 'Data science', 101),
+(7, 'MERN Stack', 102) ;
+
+select * from course_info;
+
+			-- inner join
+            
+select s1.sname , c1.cname from 
+std_info as s1 inner join course_info as c1
+on s1.sid = c1.sid;
+
+-- natural join
+
+select * from 
+std_info s1 natural join course_info c1;
+
+-- left outer join
+
+select s1.*, c1.cname from 
+std_info s1 left join course_info c1
+on s1.sid = c1.sid;
+
+-- right outer join
+
+select s1.sid, s1.sname, c1.* from
+std_info s1 right outer join course_info c1
+on s1.sid = c1.sid ;
+
+-- full outer Join
+
+select s1.*, c1.cname from 
+std_info s1 left join course_info c1
+on s1.sid = c1.sid
+union
+select s1.sid, s1.sname, c1.* from
+std_info s1 right outer join course_info c1
+on s1.sid = c1.sid ;
+
+-- cross join 
+
+select * from std_info cross join course_info;
+
+
+-- self join 
+
+select * from 
+std_info s1 join  std_info s2
+on s1.sid = s2.sid;
+
+create table Teacher_info(
+tid int primary key,
+tname varchar(250) not null,
+sid int not null,
+cid int not null,
+foreign key (sid) REFERENCES std_info(sid),
+foreign key (cid) REFERENCES course_info(cid));
+
+desc Teacher_info;
+
+insert into teacher_info  (tid, tname, sid, cid)
+values 
+(1,'Ritik Sir',101, 1),
+(2,'vaibhav Sir', 102, 2),
+(3,'Atul Sir', 103, 3),
+(4,'vaibhav Sir', 104, 7),
+(5,'Ritik Sir', 105, 7);
+
+select * from teacher_info;
+
+SELECT *
+FROM std_info s1 INNER JOIN course_info c1
+ON s1.sid = c1.sid
+INNER JOIN teacher_info t1
+    ON c1.cid = t1.cid;
+
+
+
+

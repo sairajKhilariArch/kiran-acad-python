@@ -1,0 +1,72 @@
+ ## FOREIGN KEY  :
+    A foreign key is used for referential integrity.
+    When we have two tables, and one table takes reference from another table. 
+   the same column is present in both the tables and that column acts as a primary key in one table. 
+   That particular column will act as a foreign key in another table.
+   Syntax : 
+      FOREIGN KEY (colunm_name) REFERENCES table_name(column_name)
+
+## MySQL Joins   
+      MySQL JOINS are used with SELECT statement. 
+      It is used to retrieve data from multiple tables using foreign key . 
+      It is performed whenever you need to fetch records from two or more tables.
+
+      There are four types of MySQL joins:
+      1. INNER JOIN (or sometimes called simple join)
+          The MySQL INNER JOIN is used to return all rows from multiple tables where the join condition is satisfied. 
+          It is the most common type of join.
+          Syntax :
+		SELECT columns FROM table1 INNER JOIN table2 
+		ON table1.column = table2.column;  
+
+      2. LEFT OUTER JOIN (or sometimes called LEFT JOIN)
+          The LEFT OUTER JOIN returns all rows from the left hand table specified in the ON condition and only those rows 	  from the other table where the join condition is fulfilled.
+	  Syntax:
+                  SELECT columns FROM table1 LEFT [OUTER] JOIN table2  
+		  ON table1.column = table2.column;  
+
+      3. RIGHT OUTER JOIN (or sometimes called RIGHT JOIN)
+          The MySQL Right Outer Join returns all rows from the RIGHT-hand table specified in the ON condition and only those 	  rows  from the other table where he join condition is fulfilled.
+          Syntax:
+		SELECT columns FROM table1 RIGHT [OUTER] JOIN table2  
+		ON table1.column = table2.column; 
+ 
+     4. CROSS JOIN
+         MySQL CROSS JOIN is used to combine all possibilities of the two or more tables and returns the result that contains 	 every row from all contributing tables. The CROSS JOIN is also known as CARTESIAN JOIN. The Cartesian product can be 	 explained as all rows present in the first table multiplied by all rows present in the second table. 
+         Syntax : 
+		SELECT column-lists FROM table1  CROSS JOIN table2; 
+
+							## practices  
+
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(50),
+    contact VARCHAR(15)
+);
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    order_date DATE,
+    order_amount DECIMAL(10, 2),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+
+
+## Practice 
+
+create table Employees:
+
+          emp_id	
+          name	
+         department_id
+
+create table Departments:
+
+       department_id	
+       department_name
+
+1. Write a query to get the employee names and their department names. 
+2.  Write a query to get all employees and their department names, including employees who do not belong to any department.
+3.  Write a query to get all departments and the employees in them, including departments without any employees.
+4.  Write a query to get all employees and departments, ensuring that unmatched rows from both tables are included.
