@@ -1,0 +1,52 @@
+use 1293db;
+
+show tables;
+
+select * from std_info;
+
+desc std_info;
+
+insert into  std_info (sid, sname, saddress)
+values
+(108,'Ritik','Pune'),
+(109,'Mohit','jalgaon'),
+(110,'Mohini','Mumbai');
+
+select * from std_info;
+
+select * from std_info where sage is null;
+
+select * from std_info where sage is not null;
+
+select * from std_info where sage between 26 and 28;
+
+
+select * from std_info where sage not between 26 and 28;
+
+select * from std_info where saddress in ("pune", "Mumbai");
+
+select * from std_info where saddress = "pune" || saddress = "Mumbai";
+
+select * from std_info where saddress not in ("pune", "Mumbai");
+
+select * from std_info where sname like "r%";
+
+select * from std_info where sname like "%n";
+
+select * from std_info where sname like "r%k";
+
+select * from std_info where sname like "%ri%";
+
+select * from std_info where sname like "r_t%";
+
+select * from std_info;
+
+select avg(sage) from std_info;
+
+select sname , sage from std_info
+where sage > all (select avg(sage) from std_info);
+
+select sid ,sname from std_info
+where sid in (select sid from course_info);
+
+select distinct sid from course_info;
