@@ -1,0 +1,74 @@
+1. installing Django
+	python -m pip install django
+
+2. to check the version
+	python -m django --version
+
+3. command to create the project
+	django-admin startproject mydemoproject
+	python -m django-admin startproject mydemoproject
+	python -m django startproject mydemoproject
+
+4. to create the application
+	step1: go in the folder of project 
+	cd mydemoproject
+
+5. command to run  the project/ application
+	python manage.py runserver
+
+6. to create the application
+	step1: go in the folder of project where you want to create the application
+	cd mydemoproject
+	step2: now run the code to create the application
+	python manage.py startapp app_name
+
+7. include the application in the urls.py file of project
+
+	urlpatterns = [
+    		path('admin/', admin.site.urls),
+    		path('productapp/',include('productapp.urls'),
+	)
+	]
+
+8. in the settings.py add the application name in the installed apps
+
+	INSTALLED_APPS = [
+    	'django.contrib.admin',
+    	'django.contrib.auth',
+    	'django.contrib.contenttypes',
+    	'django.contrib.sessions',
+    	'django.contrib.messages',
+    	'django.contrib.staticfiles',
+    	'app_name',
+	]
+
+9. Go to view and add a method for responding the client
+
+
+	from django.http import HttpResponse
+	from django.shortcuts import render
+
+	# Create your views here.
+
+	def index(requrest):
+   		return HttpResponse ("This is my First Django Application")
+
+10 .create url in Application 
+
+
+	from django.urls import path
+
+	from . import views 
+
+	urlpatterns = [
+ 		path('index/' , views.index)
+    
+		]
+
+
+11. command to run  the project/ application
+	python manage.py runserver
+
+12. url in browser
+
+	http://127.0.0.1:8000/myfirstapp/index/

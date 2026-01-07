@@ -1,0 +1,50 @@
+## Web Application: 
+	The applications which will provide services over the web are called web applications. 
+	eg gmail.com , thekiranacademy.com
+
+## Static Response vs Dynamic Response: 
+	If the response is not varied from time to time and person to person then it is considered as static response.
+	Eg: Login Page of Gmail, Home Page of ICICI Bank
+
+	If the response is varied from time to time and person to person then it is considered as dynamic response.
+	Eg: Inbox Page of Gmail,  Balance Page of ICICI Bank
+
+## framework
+	A framework is a pre-built structure or set of guidelines that provides a foundation for building something, such as 	a software application or a conceptual model
+
+## Django:
+  	Django is a free and open-source web framework. It is written in Python. 
+	It follows the Model (database table) -View (programming Language) -Template(Front-end technologies) (MVT) 	architectural pattern. 		
+	It is maintained by the Django Software Foundation (DSF).
+	It is used by several top websites like You tube, Google, Instagram, Nasa and many more
+
+## Django History :
+	Django was created in 2003 as an internal project at Lowrence Journal-World News Paper for their web development.
+	The Original authors of Django Framework are: Adrian Holovaty, Simon Willison.
+	After Testing this framework with heavy traffics, Developers released for the public as open source framework on 	July 21st 2005.
+	The Django was named in the memory of Guitarist Django Reinhardt.
+	Official website: djangoproject.com
+
+## Top 5 Features of Django Framework:
+	1) Fast: 
+		Django was designed to help developers take applications from concept to completion as quickly as possible.
+
+	2) Fully loaded: 
+		Django includes dozens of extras we can use to handle common Web development tasks. 
+		Django takes care of user authentication, content administration, site maps, RSS feeds, and many more tasks.
+
+	3) Security: 
+		Django takes security seriously and helps developers avoid many common security mistakes, such as SQL 			injection, cross-site scripting, cross-site request forgery and clickjacking. 
+		Its user authentication system provides a secure way to manage user accounts and passwords.
+	4) Scalability: 
+		Some of the busiest sites on the planet use Django’s ability to quickly and flexibly scale to meet the 			heaviest traffic demands.
+	5) Versatile: 
+		Companies, organizations and governments have used Django to build all sorts of things — from content 			management systems to social networks to scientific computing platforms.
+
+
+
+
+
+
+
+
