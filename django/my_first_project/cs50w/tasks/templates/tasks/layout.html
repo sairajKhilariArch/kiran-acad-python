@@ -1,4 +1,4 @@
-
+{%load static%}
 
 
 <!DOCTYPE html>
@@ -6,9 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tasks 101</title>
+    <link href="{%static 'tasks/styles.css'%}" rel="stylesheet">
 </head>
 <body>
-    <h1>{{ name }}, Hi this is a sairaj</h1>
+    {% block body %}
+    
+    {% endblock %}
+
 </body>
 </html>

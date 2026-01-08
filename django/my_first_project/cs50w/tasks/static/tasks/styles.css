@@ -1,0 +1,25 @@
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    font-style:italic;
+    text-align: center;
+    
+}
+
+h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    font-style: italic;
+    text-align: left;
+    
+}
+
+form {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    font-style:normal;
+    /* text-align: center; */
+    /* align-self: center; */
+    /* align-content: center; */
+    
+}

@@ -11,4 +11,5 @@ def index(request):
     date = datetime.datetime.now()
     return render(request,"newyear/index.html",{
         "dater" : date.month == 1 and date.day == 1
+        # "dater" : True
     })

@@ -1,14 +1,19 @@
+ {% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Is it New Year</title>
+    <link href="{%static 'newyear/styles.css' %}" rel = "stylesheet"> 
+
 </head>
 <body>
 
 
+
     {%if dater%}
-        <h1>Yes </h1><h2>, Today Is New Year'S  Eve</h2>
+        <h1>Yes </h1> <h2>, Today Is New Year'S  Eve</h2>
     {%else %}
         <h1>NO ,</h1 >  <h2>Today Is Not The New Year'S  Eve</h2>
     {%endif %}
