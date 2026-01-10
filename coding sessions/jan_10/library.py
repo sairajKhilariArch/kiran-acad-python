@@ -1,4 +1,4 @@
-
+from datetime import date
 class Library:
     L_NAME = "THE KIRAN ACADEMY"
     L_OWNER = "KIRAN SIR"
@@ -6,7 +6,7 @@ class Library:
     
     def __init__(self,br):
         self.Branch = br
-        self.Books ={}
+        self.Books = {}
         self.Members = {}
         
     
@@ -95,15 +95,83 @@ class Library:
             return "member ID is already Present in the Library"
     
     
-    
-    
-    
-    
 
-karve = Library("karve")
+
+# karve = Library("karve")
 
 # print(karve.book_remove())
-print(karve.book_issue())
+# print(karve.book_issue())
 
 # print(karve.Add_Member())
+
+
+
+class Member :
+    
+    def __init__(self,id,name):
+        self.Name = name
+        self.Id = id
+        self.Book = {}
+        
+
+    # def Add_Member(self):
+    #     ID = input("ID you want to Give :")
+    #     if ID not in self.Id:
+    #         name = input("Name of the Member:")
+    #         self.Id = ID
+    #         self.Name = name
+    #         return f"Member is been Added \n--------------------------\n {ID} :  {name}"
+    #     else :
+    #         return "member ID is already Present"
+        
+    
+    def Issue_Book(self,book):
+        self.Book[book] = date.today()
+    
+    def Return_Book(self,book):
+        self.Book.pop(book)
+    
+    
+
+    def details(self):
+        data = f"""
+MEMBER NAME
+-----------
+NAME        : {self.Name}
+ID          : {self.Id}
+BOOKS       : {self.Book}
+
+        """
+
+
+class Book:
+    
+    def __init__(self,name,id,author,page_count,price):
+        self.B_name = name
+        self.B_id = id
+        self.B_author = author
+        self.B_page_count = page_count
+        self.B_price = price
+
+    def details(self):
+        data = f"""
+BOOKS DETAILS 
+------------------------
+BOOK NAME       :  {self.B_name}
+BOOK ID         :  {self.B_id}
+BOOK AUTHOR     :  {self.B_author}
+BOOK PAGE COUNT :  {self.B_page_count}
+BOOK PRICE      :  {self.B_price}
+
+        """
+        return data
+
+
+
+
+
+
+
+
+
 
