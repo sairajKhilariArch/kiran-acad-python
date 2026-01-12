@@ -27,4 +27,12 @@ urlpatterns = [
     path("",views.home, name="HOME"),
     path("about/",views.about, name="ABOUT"),
     path("contact/",views.contact, name="CONTACT"),
+    
+    
+    
+    
+    
+    
+    
+    path("__reload__/",include("django_browser_reload.urls")),
 ]
