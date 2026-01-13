@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+chai details page
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'chai/styles.css' %}">
+{% endblock %}
+
+{% block body %}
+<h1>chai detail page</h1>
+
+{{chai.id}}
+
+    <div class="bg-gray-300 p-3 rounded-2xl shadow-lg"> 
+        <img class="rounded-2xl" src="{{chai.image.url}}" alt="">
+        <li type="none" class="text-2xl font-bold shadow-lg ">{{chai}}</li>
+        
+
+        <a href="{% url 'CHAI_DETAIL' chai.id %}" class="self-center">
+
+            {{chai.type}}- {{chai.id}}<br>
+
+            <p class="text-2xl ">
+                {{chai.description}}
+            </p>
+            <div class="hello flex items-center justify-center">
+            <button 
+                type="button" 
+                class="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded w-[50%] rounded-2xl mt-4">
+                Rs.{{chai.price}}
+            </button>
+            </div>
+
+        </a>
+    </div>
+    
+{% endblock %}

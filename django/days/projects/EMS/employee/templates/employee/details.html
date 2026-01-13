@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Employee Detail</title></head>
+<body class="container mt-4">
+<h3>{{ employee.name }}</h3>
+<ul class="list-group">
+    <li class="list-group-item">Email: {{ employee.email }}</li>
+    <li class="list-group-item">Phone: {{ employee.phone }}</li>
+    <li class="list-group-item">Department: {{ employee.department }}</li>
+    <li class="list-group-item">Designation: {{ employee.designation }}</li>
+    <li class="list-group-item">Salary: {{ employee.salary }}</li>
+</ul>
+<a href="{% url 'employee_list' %}" class="btn btn-secondary mt-3">Back</a>
+</body>
+</html>

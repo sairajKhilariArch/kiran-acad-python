@@ -13,6 +13,14 @@ class ChaiVarity(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to="chais/")
     date_added = models.DateTimeField(default=timezone.now)
-    type = models.models.CharField( max_length=2,choices =CHAI_TYPE_CHOICE)
+    type = models.CharField( max_length=2,choices =CHAI_TYPE_CHOICE)
+    description = models.TextField(max_length=100 , default="")
+    price = models.IntegerField(max_length=10,default=0)
     
-    
+
+
+    def __str__(self):
+        return self.name
+
+
+

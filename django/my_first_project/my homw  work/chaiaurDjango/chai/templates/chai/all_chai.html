@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+
+
+
+{% block title %}
+all chai 
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'chai/styles.css' %}">
+{% endblock %}
+
+
+
+{% block body %}
+
+
+<h1>All chai variety</h1>
+
+<div class="grid grid-cols-2 gap-4 m-4 border-4 border-green-700 rounded-2xl" >
+
+    {% for chai in chais %}
+
+    <div class="bg-gray-300 p-3 rounded-2xl shadow-lg"> 
+        <img class="rounded-2xl" src="{{chai.image.url}}" alt="">
+        <li type="none" class="text-2xl font-bold shadow-lg ">{{chai}}</li>
+        
+
+        <a href="{% url 'CHAI_DETAIL' chai.id %}" class="self-center">
+            <button 
+            type="button" 
+            class=" bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded w-[100%] ">
+            {{chai.type}}- {{chai.id}}
+            </button>
+        </a>
+    </div>
+    
+
+    {% endfor %}
+
+</div>
+
+
+
+{% endblock %}

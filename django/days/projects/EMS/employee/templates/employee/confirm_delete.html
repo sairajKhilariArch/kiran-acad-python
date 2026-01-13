@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>Delete</title></head>
+<body class="container mt-4">
+<h3>Delete {{ employee.name }}?</h3>
+<form method="POST">
+{% csrf_token %}
+<button type="submit" class="btn btn-danger">Yes, Delete</button>
+<a href="{% url 'employee_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+</body>
+</html>
