@@ -1,0 +1,81 @@
+project --  Exam
+
+Application -- Examapp
+
+database -- examdb
+
+model.py
+   1. questions 
+	ID       -- pk
+	qno      -- intgerfiled
+	qname    -- charfield
+	op1      -- charfield
+	op2      -- charfield
+	op3      -- charfield
+	op4      -- charfield
+	corr_ans -- charfield
+	subject  -- charfield
+	
+   2. student
+	sid      -- intgerfileld pk
+	sname    --  charfield 
+	semail   --  charfield
+	smob_no  -- bigintgerfield
+
+   3. result
+	rid   -- intgerfield pk
+	marks -- intgerfield
+	sid   -- fk
+
+Templates  (bootstrap , icon)
+  
+  1. Questions floder
+	1. addquestion
+	2. viewquestion
+	3. updatequestion
+	4. deletequestion
+	5. questioncurd
+	6. showallquestion	
+  2. student
+	1. registration page / add Student
+	2. viewstudent
+	3. updatestudent
+	4. delete student
+	5. studentcurd
+	6. showallstudent
+  3. result 
+	1. addresult
+	2. viewresult
+	3. updateresult
+	4. deleteresult
+	5. resultallpage
+  4. login page
+  5. subject page
+  6. starttestpage
+
+
+
+view.py logic
+	registerstudent()    -- return login page
+	loginstudent()       -- return subject page
+	viewStudent()        -- return view student page
+	updatestudent()      -- return update student page
+	showstudentupdate()  -- return update student page
+	deletestudent()      -- return delete student page
+	showstudentdelete()  -- return delete student page
+	showallstudent()     -- return show all student page
+	getStudentcurd()     -- return student curd page
+	getragisterpage()    -- return ragister page
+	getshowpage()        -- return show page
+	getloginpage()       -- return login page
+	getupdatestudent()   -- return update student page
+	getdeletestuent()    -- return delete student page
+
+	-- same for questions and result
+	
+	starttest()
+	prevQuestion()
+	nextQuestion()
+	endTest()
+
+DRF (Django rest framework) (Postman)

@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+home page
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'chai/styles.css' %}">
+{% endblock %}
+
+{% block body %}
+<h1>chai home page</h1>
+<form method= "POST">
+
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button type="submit"> Search Store</button>
+</form>
+
+{% if stores is not None %}
+    {% if stores %}
+        <h2>Stores Available</h2>
+        <ul>
+            {% for store in stores %}
+                <li>{{ store.name }} - {{ store.location }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No stores found for this chai.</p>
+    {% endif %}
+{% endif %}
+
+{% endblock %}
