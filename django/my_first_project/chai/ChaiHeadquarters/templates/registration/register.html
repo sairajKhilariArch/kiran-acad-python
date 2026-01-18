@@ -3,14 +3,21 @@
 
 {% block title %} Tweet Page {% endblock %}
 
-{% block css %}
-<link rel="stylesheet" href="{% static 'tweet/style.css' %}">
-{% endblock %}
 
 
 {% block body %}
 
 <p class="text-center fs-1 fw-bold text-primary mt-4 ">Welcome To Tweet Django Project</p>
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-primary"> Regidter</button>
+</form>
+
+
+
+<p>Dont have an account? <a href="{% url 'login' %}">login</a></p>
 
 
 

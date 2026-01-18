@@ -3,14 +3,16 @@
 
 {% block title %} Tweet Page {% endblock %}
 
-{% block css %}
-<link rel="stylesheet" href="{% static 'tweet/style.css' %}">
-{% endblock %}
-
 
 {% block body %}
 
 <p class="text-center fs-1 fw-bold text-primary mt-4 ">Welcome To Tweet Django Project</p>
+
+
+<h2>Logged Out </h2>
+
+
+<p>you have been logged out<a href="{% url 'login' %}">Register</a></p>
 
 
 
