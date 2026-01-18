@@ -1,0 +1,11 @@
+body{
+    background-color: cornflowerblue;
+}
+
+
+p{
+    text-align: center;
+    text-decoration: wavy;
+    text-overflow: clip;
+    color: yellowgreen;
+}

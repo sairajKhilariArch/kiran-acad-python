@@ -1,0 +1,100 @@
+1. Mobile Phone – ₹12,999
+2. Laptop – ₹55,000
+3. Headphones – ₹1,499
+4. Wireless Mouse – ₹699
+5. Keyboard – ₹1,200
+6. Smart Watch – ₹3,999
+7. Power Bank – ₹1,599
+8. Bluetooth Speaker – ₹2,499
+9. USB Cable – ₹199
+10. Charger Adapter – ₹899
+11. Monitor – ₹9,999
+12. Pen Drive – ₹549
+13. Hard Disk – ₹4,999
+14. Router – ₹2,299
+15. Webcam – ₹1,799
+16. Earbuds – ₹2,199
+17. Tablet – ₹18,999
+18. Printer – ₹11,499
+19. Laptop Bag – ₹899
+20. Phone Case – ₹299
+21. Gaming Console – ₹29,999
+22. TV 43-inch – ₹32,000
+23. Air Conditioner – ₹35,000
+24. Refrigerator – ₹28,000
+25. Washing Machine – ₹22,000
+26. Microwave Oven – ₹9,500
+27. Mixer Grinder – ₹3,200
+28. Induction Cooktop – ₹2,100
+29. Electric Kettle – ₹1,099
+30. Ceiling Fan – ₹2,499
+31. Table Fan – ₹1,499
+32. LED Bulb – ₹199
+33. Extension Board – ₹699
+34. Iron Box – ₹1,599
+35. Hair Dryer – ₹1,299
+36. Trimmer – ₹1,799
+37. Electric Shaver – ₹2,999
+38. Toothbrush (Electric) – ₹2,299
+39. Water Bottle – ₹399
+40. Lunch Box – ₹599
+41. Backpack – ₹1,999
+42. School Bag – ₹1,499
+43. Shoes – ₹3,999
+44. Sneakers – ₹4,499
+45. Sandals – ₹1,799
+46. Slippers – ₹499
+47. Jeans – ₹2,299
+48. T-Shirt – ₹699
+49. Shirt – ₹1,299
+50. Jacket – ₹3,499
+51. Watch – ₹2,999
+52. Sunglasses – ₹1,599
+53. Belt – ₹799
+54. Wallet – ₹1,199
+55. Cap – ₹499
+56. Perfume – ₹1,999
+57. Deodorant – ₹599
+58. Shampoo – ₹349
+59. Soap – ₹99
+60. Face Wash – ₹299
+61. Toothpaste – ₹199
+62. Hair Oil – ₹249
+63. Comb – ₹149
+64. Hair Brush – ₹299
+65. Mirror – ₹499
+66. Towel – ₹799
+67. Bedsheet – ₹1,899
+68. Pillow – ₹999
+69. Blanket – ₹2,499
+70. Mattress – ₹8,999
+71. Study Table – ₹6,999
+72. Chair – ₹4,999
+73. Sofa – ₹25,000
+74. Dining Table – ₹18,000
+75. Wardrobe – ₹22,000
+76. Bookshelf – ₹7,500
+77. Curtain – ₹1,499
+78. Wall Clock – ₹1,199
+79. Photo Frame – ₹699
+80. Painting – ₹3,999
+81. Plant Pot – ₹499
+82. Indoor Plant – ₹799
+83. Torch – ₹599
+84. Batteries – ₹249
+85. Calculator – ₹699
+86. Diary – ₹399
+87. Notebook – ₹149
+88. Pen Set – ₹299
+89. Pencil Box – ₹199
+90. Geometry Box – ₹349
+91. Whiteboard – ₹2,299
+92. Marker Set – ₹499
+93. Printer Ink – ₹1,299
+94. Paper Ream – ₹699
+95. File Folder – ₹299
+96. Stapler – ₹199
+97. Tape Roll – ₹149
+98. Scissors – ₹249
+99. Glue – ₹99
+100. Dustbin – ₹599
