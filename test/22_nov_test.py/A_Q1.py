@@ -15,6 +15,6 @@ def is_prime(a):
         print("number is prime")
     else:
         print("number is not print")
-
+        
 
 is_prime(input_user)

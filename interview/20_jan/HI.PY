@@ -9,7 +9,25 @@ def Q1():
     print(total)  
 
 
-Q1()
+# Q1()
+
+
+
+
+
+
+def a(n):
+    def b(m):
+        def c(o):
+            print(n+m+o)
+            return 'done'
+        return 'done b'
+    return 'done a'
+
+hh = a(1)
+bb = a(hh)
+print(a(0))
+
 
 # reduce
 # map 
