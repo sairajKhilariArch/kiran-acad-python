@@ -52,7 +52,7 @@ body.focus-code{overflow:hidden}body.focus-code .wrap{max-width:none;padding:0}b
   const treeEl=document.getElementById('tree'), searchEl=document.getElementById('search');
   const codewrap=document.getElementById('codewrap'), crumb=document.getElementById('crumb');
   const githubFile=document.getElementById('githubFile'), copyBtn=document.getElementById('copyBtn');
-  let branch='main', entries=[], dirs=new Set(), currentCode='', currentPath='', expanded=new Set([ROOT]), filtered=false;
+  let branch='main', entries=[], dirs=new Set(), currentCode='', currentPath='', expanded=new Set([ROOT]), filtered=false, pythonTripleQuote=null;
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const iconFor=p=>{const x=p.toLowerCase();if(x.endsWith('.py'))return '🐍';if(x.endsWith('.html')||x.endsWith('.css')||x.endsWith('.js'))return '◇';if(x.endsWith('.md')||x.endsWith('.txt'))return '¶';if(x.endsWith('.toml')||x.endsWith('.ini')||x.endsWith('.json'))return '⚙';if(x.endsWith('.pdf'))return 'PDF';if(x.endsWith('.epub'))return 'BOOK';if(/\.(png|jpe?g|gif|webp|svg)$/.test(x))return '▧';if(x.endsWith('.sql'))return '▤';return '·'};
   function makeTree(paths){
@@ -130,6 +130,7 @@ body.focus-code{overflow:hidden}body.focus-code .wrap{max-width:none;padding:0}b
       if(!res.ok)throw new Error(`GitHub returned HTTP ${res.status}`);
       currentCode=await res.text();
       const lines=currentCode.replace(/\n$/,'').split('\n');
+      pythonTripleQuote=null;
       codewrap.innerHTML=`<div class="code">${lines.map((line,i)=>`<span class="line-no">${i+1}</span><span class="code-text">${highlight(line,path)}</span>`).join('')}</div>`;
       document.getElementById('fileMeta').textContent=`${path} · ${lines.length.toLocaleString()} lines · ${(new Blob([currentCode]).size/1024).toFixed(1)} KB`;
       document.getElementById('loadState').innerHTML='<span class="pulse"></span>Loaded from GitHub';
@@ -146,32 +147,65 @@ body.focus-code{overflow:hidden}body.focus-code .wrap{max-width:none;padding:0}b
     const isPy=ext==='py'||ext==='pyi';
     const isShell=['sh','bash','zsh'].includes(ext);
     const isSql=ext==='sql';
-    const prefix=isPy||isShell||isSql?'#':'#';
-    const marker=(isPy||isShell||isSql)?'#':'#';
     const commentRules=[
       [/^\s*#\s*!/, 'comment-red'],[/^\s*#\s*\?/, 'comment-blue'],[/^\s*#\s*\*/, 'comment-green'],[/^\s*#\s*\^/, 'comment-yellow'],[/^\s*#\s*&/, 'comment-pink'],[/^\s*#\s*~/, 'comment-purple'],[/^\s*#\s*todo\b/i, 'comment-todo']
     ];
-    if(isPy||isShell||isSql||['yaml','yml','toml','ini','cfg','conf'].includes(ext)){
-      for(const [pattern,cls] of commentRules){if(pattern.test(line))return `<span class="${cls}">${esc(line)}</span>`;}
-      if(/^\s*#/.test(line)){
-        const looksLikeCode=/^\s*#\s*(?:def|class|return|if|elif|else|for|while|import|from|print\s*\(|async|await|try|except|with|let|const|function|SELECT|INSERT|UPDATE|DELETE|CREATE|ALTER|DROP)\b/i.test(line);
-        return `<span class="${looksLikeCode?'commented-code':'comment'}">${esc(line)}</span>`;
+    if(isPy){
+      // Tokenize raw Python text before adding markup. This prevents the
+      // keyword `class` inside <span class="str"> from corrupting HTML.
+      let out='', i=0;
+      const kw=new Set('False None True and as assert async await break class continue def del elif else except finally for from global if import in is lambda nonlocal not or pass raise return try while with yield'.split(' '));
+      const stringSpan=t=>`<span class="str">${esc(t)}</span>`;
+      if(pythonTripleQuote){
+        const closeAt=line.indexOf(pythonTripleQuote);
+        if(closeAt===-1)return stringSpan(line);
+        out+=stringSpan(line.slice(0,closeAt+3));i=closeAt+3;pythonTripleQuote=null;
       }
+      while(i<line.length){
+        const rest=line.slice(i);
+        if(line[i]==='#'){
+          const comment=line.slice(i);
+          let cls='comment';
+          for(const [pattern,c] of commentRules){if(pattern.test(comment)){cls=c;break;}}
+          if(cls==='comment'&&/^#\s*(?:def|class|return|if|elif|else|for|while|import|from|print\s*\(|async|await|try|except|with)\b/i.test(comment))cls='commented-code';
+          out+=`<span class="${cls}">${esc(comment)}</span>`;break;
+        }
+        const triple=rest.startsWith('"""')?'"""':rest.startsWith("'''")?"'''":null;
+        if(triple){
+          const closeAt=line.indexOf(triple,i+3);
+          if(closeAt===-1){pythonTripleQuote=triple;out+=stringSpan(line.slice(i));break;}
+          out+=stringSpan(line.slice(i,closeAt+3));i=closeAt+3;continue;
+        }
+        if(line[i]==='"'||line[i]==="'"){
+          const q=line[i];let j=i+1;
+          while(j<line.length){if(line[j]==='\\'){j+=2;continue;}if(line[j]===q){j++;break;}j++;}
+          out+=stringSpan(line.slice(i,j));i=j;continue;
+        }
+        const id=rest.match(/^[A-Za-z_]\w*/);
+        if(id){const word=id[0];out+=kw.has(word)?`<span class="kw">${word}</span>`:esc(word);i+=word.length;continue;}
+        const num=rest.match(/^\d+(?:\.\d+)?/);
+        if(num){out+=`<span class="num">${num[0]}</span>`;i+=num[0].length;continue;}
+        out+=esc(line[i]);i++;
+      }
+      return out||' ';
+    }
+    if(isShell||isSql||['yaml','yml','toml','ini','cfg','conf'].includes(ext)){
+      for(const [pattern,cls] of commentRules){if(pattern.test(line))return `<span class="${cls}">${esc(line)}</span>`;}
+      if(/^\s*#/.test(line))return `<span class="comment">${esc(line)}</span>`;
       let safe=esc(line);
-      safe=safe.replace(/(&quot;.*?&quot;|&#39;.*?&#39;|&quot;&quot;&quot;.*?&quot;&quot;&quot;)/g,'<span class="str">$1</span>');
-      if(isPy)safe=safe.replace(/\b(def|class|return|if|elif|else|for|while|in|is|not|and|or|import|from|as|try|except|finally|raise|with|yield|lambda|pass|break|continue|global|nonlocal|assert|del|async|await|True|False|None|self|super)\b/g,'<span class="kw">$1</span>');
-      else if(isSql)safe=safe.replace(/\b(SELECT|FROM|WHERE|JOIN|ON|AS|INSERT|INTO|VALUES|UPDATE|SET|DELETE|CREATE|TABLE|ALTER|DROP|PRIMARY|KEY|FOREIGN|REFERENCES|NULL|NOT|AND|OR|ORDER|BY|GROUP|LIMIT)\b/gi,'<span class="kw">$1</span>');
-      else if(isShell)safe=safe.replace(/\b(if|then|else|fi|for|do|done|case|esac|function|export|return|in)\b/g,'<span class="kw">$1</span>');
-      safe=safe.replace(/\b(\d+(?:\.\d+)?)\b/g,'<span class="num">$1</span>');
+      if(isSql)safe=safe.replace(/(SELECT|FROM|WHERE|JOIN|ON|AS|INSERT|INTO|VALUES|UPDATE|SET|DELETE|CREATE|TABLE|ALTER|DROP|PRIMARY|KEY|FOREIGN|REFERENCES|NULL|NOT|AND|OR|ORDER|BY|GROUP|LIMIT)/gi,'<span class="kw">$1</span>');
+      else if(isShell)safe=safe.replace(/(if|then|else|fi|for|do|done|case|esac|function|export|return|in)/g,'<span class="kw">$1</span>');
       return safe||' ';
     }
-    // Non-Python text still gets readable generic syntax and colorful comment markers.
-    for(const [pattern,cls] of commentRules){if(pattern.test(line))return `<span class="${cls}">${esc(line)}</span>`;}
-    if(/^\s*\/\//.test(line)||/^\s*\/\*/.test(line)||/^\s*\*/.test(line))return `<span class="comment">${esc(line)}</span>`;
+    if(/^\s*\/\//.test(line)||/^\s*\/\*/.test(line)||/^\s*\*/.test(line)){
+      const trimmed=line.trimStart().replace(/^\/\//,'#');
+      for(const [pattern,cls] of commentRules){if(pattern.test(trimmed))return `<span class="${cls}">${esc(line)}</span>`;}
+      return `<span class="comment">${esc(line)}</span>`;
+    }
     let safe=esc(line);
     safe=safe.replace(/(&quot;.*?&quot;|&#39;.*?&#39;)/g,'<span class="str">$1</span>');
-    safe=safe.replace(/\b(fn|let|mut|pub|use|mod|struct|enum|impl|trait|where|match|if|else|loop|while|for|in|return|self|Self|async|await|move|const|static|type|as|dyn|unsafe|extern|crate|super|true|false|Some|None|Ok|Err)\b/g,'<span class="kw">$1</span>');
-    safe=safe.replace(/\b(\d+)\b/g,'<span class="num">$1</span>');
+    safe=safe.replace(/(fn|let|mut|pub|use|mod|struct|enum|impl|trait|where|match|if|else|loop|while|for|in|return|self|Self|async|await|move|const|static|type|as|dyn|unsafe|extern|crate|super|true|false|Some|None|Ok|Err)/g,'<span class="kw">$1</span>');
+    safe=safe.replace(/(\d+)/g,'<span class="num">$1</span>');
     return safe||' ';
   }
   async function init(){
