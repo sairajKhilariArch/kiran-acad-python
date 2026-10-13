@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b12">
+<meta name="description" content="Browse every file in kiran-acad-python directly from GitHub, with searchable folders and an in-page Python code viewer.">
+<title>Python Learning Explorer · Sairaj Khilari</title>
+<style>
+:root{color-scheme:dark;--bg:#080b12;--panel:#0d121d;--panel2:#111827;--line:#202b3c;--text:#e7edf7;--muted:#8d9bb0;--red:#f06464;--orange:#ffad66;--green:#6ee7b7;--blue:#8ab4ff;--shadow:0 20px 60px #0006}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#35161f 0,transparent 33%),radial-gradient(ellipse at 90% 10%,#12294a 0,transparent 35%),var(--bg);color:var(--text);font:14px/1.55 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}
+.wrap{max-width:1500px;margin:auto;padding:26px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:38px}.brand{display:flex;align-items:center;gap:12px;font-weight:750;letter-spacing:-.03em}.brandmark{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#f06464,#a83255);box-shadow:0 8px 26px #f0646433;font-size:22px}.toplinks{display:flex;gap:10px;flex-wrap:wrap}.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#0b111bd9;padding:9px 13px;border-radius:999px;color:#c7d2e2;font-size:12px}.pill:hover{border-color:#e26c6c;color:white}
+.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:end;margin:0 0 30px}.eyebrow{color:var(--red);font-weight:800;text-transform:uppercase;letter-spacing:.18em;font-size:11px}.hero h1{font-size:clamp(38px,6vw,72px);line-height:.99;letter-spacing:-.065em;margin:13px 0 18px;max-width:850px}.gradient{background:linear-gradient(100deg,#fff 5%,#ff9c80 55%,#e2aaff);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:760px;font-size:16px;margin:0}.hero-card{border:1px solid #293449;background:linear-gradient(145deg,#131a29eF,#0b1019ee);border-radius:22px;padding:22px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero-card:after{content:"";position:absolute;width:180px;height:180px;right:-70px;top:-85px;border-radius:50%;background:#f064641c;filter:blur(5px)}.statrow{display:flex;gap:12px;flex-wrap:wrap}.stat{flex:1;min-width:100px;background:#080d16;border:1px solid #202a3a;border-radius:14px;padding:14px}.stat b{font-size:26px;display:block;letter-spacing:-.05em}.stat span{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.1em}.techs{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px}.tech{font-size:11px;border:1px solid #263348;color:#c9d6e8;background:#101827;padding:5px 9px;border-radius:7px}
+.workspace{display:grid;grid-template-columns:330px minmax(0,1fr);gap:18px;min-height:620px}.panel{border:1px solid var(--line);background:#0c111beF;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;min-width:0}.panelhead{padding:16px 17px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px}.panelhead h2{font-size:13px;text-transform:uppercase;letter-spacing:.12em;margin:0}.count{color:var(--muted);font-size:11px}.searchwrap{padding:13px;border-bottom:1px solid var(--line)}.search{width:100%;background:#080d15;border:1px solid #273348;color:var(--text);padding:11px 12px;border-radius:10px;outline:none}.search:focus{border-color:var(--red);box-shadow:0 0 0 3px #f0646419}.tree{padding:9px;max-height:700px;overflow:auto}.treeitem{width:100%;display:flex;align-items:center;gap:9px;text-align:left;border:0;background:transparent;color:#c8d3e2;padding:8px 9px;border-radius:8px;font-size:12px;min-width:0}.treeitem:hover{background:#151d2a}.treeitem.active{background:#3a1b26;color:#fff;box-shadow:inset 2px 0 #f06464}.treeitem .fname{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}.treeitem .chev{color:#718198;width:10px}.treeitem .fileicon{color:#e8a96d;flex-shrink:0}.treeitem.folder .fileicon{color:#8ab4ff}.treeitem .tiny{font-size:10px;color:#718198}.indent{padding-left:calc(9px + var(--depth)*14px)}
+.viewer{display:flex;flex-direction:column;min-height:620px}.viewerhead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);min-height:60px}.crumb{display:flex;align-items:center;gap:7px;flex-wrap:wrap;color:#9aa9bd;font-size:12px;min-width:0}.crumb strong{color:#eef3fb;overflow-wrap:anywhere}.crumb button{border:0;background:transparent;color:#9aa9bd;padding:2px 0;border-bottom:1px dashed transparent;overflow-wrap:anywhere;font-size:inherit}.crumb button:hover{color:#ff9c80;border-bottom-color:#ff9c80}.crumb button.current{color:#eef3fb;font-weight:700}.crumb .crumb-sep{color:#526178;user-select:none}.actions{display:flex;gap:7px;flex-shrink:0}.btn{border:1px solid #2a3649;border-radius:9px;padding:8px 11px;background:#111a29;color:#dce6f5;font-size:11px}.btn:hover{border-color:var(--red);color:white}.btn.primary{background:#a83d4b;border-color:#c94d5b;color:white}.codewrap{flex:1;min-height:0;overflow:auto;background:#090e16}.welcome{height:100%;min-height:450px;display:grid;place-items:center;text-align:center;padding:35px}.welcomeicon{font-size:48px;filter:drop-shadow(0 0 25px #f064643d)}.welcome h3{font-size:24px;letter-spacing:-.04em;margin:14px 0 7px}.welcome p{color:var(--muted);max-width:470px;margin:0 auto 20px}.codeinfo{padding:12px 18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#738198;font-size:11px}.code{display:grid;grid-template-columns:auto 1fr;min-width:max-content;padding:16px 0;font:12px/1.8 ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace}.line-no{color:#526178;text-align:right;padding:0 16px 0 18px;user-select:none;border-right:1px solid #1a2432;margin-right:16px}.code-text{white-space:pre;padding-right:30px;color:#d9e2f1}.code-text .kw{color:#f18d9a}.code-text .str{color:#b8df9d}.code-text .comment{color:#8995a7;font-style:italic}.code-text .comment-red{color:#ff6868;font-style:italic}.code-text .comment-blue{color:#70b8ff;font-style:italic}.code-text .comment-green{color:#67df9a;font-style:italic}.code-text .comment-yellow{color:#f5d66b;font-style:italic}.code-text .comment-pink{color:#ff8fcf;font-style:italic}.code-text .comment-purple{color:#c6a0ff;font-style:italic}.code-text .comment-todo{color:#d9b44a;font-weight:700;font-style:italic}.code-text .commented-code{color:#667386;font-style:italic;text-decoration:line-through;text-decoration-color:#4b586a}.code-text .num{color:#eab981}.loading{padding:26px;color:var(--muted)}.error{padding:24px;color:#ff9b9b}.footer{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#65738a;font-size:11px;padding:20px 3px}.footer a{color:#aab8cb}.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:#6ee7b7;box-shadow:0 0 10px #6ee7b766;margin-right:7px}.empty{padding:20px;color:var(--muted);font-size:12px}
+body.focus-code{overflow:hidden}body.focus-code .wrap{max-width:none;padding:0}body.focus-code .top,body.focus-code .hero,body.focus-code .workspace>aside,body.focus-code .footer{display:none}body.focus-code .workspace{display:block;min-height:100vh;margin:0}body.focus-code .viewer{height:100vh;min-height:0;border:0;border-radius:0;box-shadow:none}body.focus-code .viewerhead{position:relative;z-index:2;background:#0c111b;min-height:64px}body.focus-code .codewrap{height:calc(100vh - 112px);max-height:none}body.focus-code .codeinfo{background:#0c111b}body.focus-code .code{padding:20px 0;font-size:13px;line-height:1.9}body.focus-code .code-text{padding-right:48px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.workspace{grid-template-columns:1fr}.tree{max-height:360px}.viewer{min-height:500px}.top{align-items:flex-start}.wrap{padding:18px}}
+@media(max-width:540px){.wrap{padding:12px}.top{margin-bottom:25px;flex-direction:column}.hero h1{font-size:42px}.viewerhead{align-items:flex-start;flex-direction:column}.actions{width:100%}.btn{flex:1}.stat b{font-size:22px}}
+@media(prefers-reduced-motion:no-preference){.brandmark{animation:float 5s ease-in-out infinite}.hero-card{animation:rise .7s ease both}.panel{animation:rise .65s ease both}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="https://github.com/sairajKhilariArch/kiran-acad-python" target="_blank" rel="noreferrer"><span class="brandmark">🐍</span><span>Python Learning <span style="color:var(--muted);font-weight:500">/ Explorer</span></span></a>
+  <nav class="toplinks"><a class="pill" href="https://github.com/sairajKhilariArch/kiran-acad-python" target="_blank" rel="noreferrer">↗ Repository</a><a class="pill" href="https://github.com/sairajKhilariArch/kiran-acad-python/tree/main" target="_blank" rel="noreferrer">⌘ Browse repository</a></nav>
+</header>
+<section class="hero">
+  <div><div class="eyebrow">Interactive source browser</div><h1>Learn Python.<br><span class="gradient">One file at a time.</span></h1><p>Explore every tracked file and folder in your repository—from Python exercises and Django projects to notes and learning resources. Browse inside this website, open code inline, and expand the viewer when you need more room.</p></div>
+  <aside class="hero-card"><div class="statrow"><div class="stat"><b id="fileCount">—</b><span>Repository files</span></div><div class="stat"><b id="folderCount">—</b><span>Folders</span></div><div class="stat"><b id="branchName">main</b><span>Branch</span></div></div><div class="techs"><span class="tech">Python</span><span class="tech">Django</span><span class="tech">MySQL</span><span class="tech">Live GitHub tree</span></div></aside>
+</section>
+<section class="workspace">
+  <aside class="panel">
+    <div class="panelhead"><h2>Source explorer</h2><span class="count" id="treeStatus">Connecting…</span></div>
+    <div class="searchwrap"><input id="search" class="search" type="search" placeholder="Search every file and folder…" aria-label="Search repository files"></div>
+    <div id="tree" class="tree"><div class="loading">Loading repository source tree…</div></div>
+  </aside>
+  <main class="panel viewer">
+    <div class="viewerhead"><div class="crumb" id="crumb"><strong>kiran-acad-python</strong><span>/</span><span>Select a file</span></div><div class="actions"><button class="btn" id="focusBtn" type="button" aria-pressed="false">⛶ Expand code</button><button class="btn" id="copyBtn" disabled>Copy code</button><a class="btn" id="githubFile" href="https://github.com/sairajKhilariArch/kiran-acad-python" target="_blank" rel="noreferrer">View on GitHub ↗</a></div></div>
+    <div id="codewrap" class="codewrap"><div class="welcome"><div><div class="welcomeicon">⌘</div><h3>Your source, in one place.</h3><p>Choose any file or folder on the left. This page discovers the repository tree live, so new files and folders appear when you reload the page.</p><button class="btn primary" id="openFirst">Open first source file</button></div></div></div>
+    <div class="codeinfo"><span id="fileMeta">Files are loaded from GitHub on demand</span><span id="loadState"><span class="pulse"></span>Ready to explore</span></div>
+  </main>
+</section>
+<footer class="footer"><span>Built for <a href="https://github.com/sairajKhilariArch" target="_blank" rel="noreferrer">Sairaj Khilari</a> · kiran-acad-python</span><span>Repository tree and readable file contents are fetched live from GitHub. Folder navigation stays inside this website.</span></footer>
+</div>
+<script>
+(() => {
+  const OWNER='sairajKhilariArch', REPO='kiran-acad-python', ROOT='.';
+  const API=`https://api.github.com/repos/${OWNER}/${REPO}`;
+  const treeEl=document.getElementById('tree'), searchEl=document.getElementById('search');
+  const codewrap=document.getElementById('codewrap'), crumb=document.getElementById('crumb');
+  const githubFile=document.getElementById('githubFile'), copyBtn=document.getElementById('copyBtn');
+  let branch='main', entries=[], dirs=new Set(), currentCode='', currentPath='', expanded=new Set([ROOT]), filtered=false;
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const iconFor=p=>{const x=p.toLowerCase();if(x.endsWith('.py'))return '🐍';if(x.endsWith('.html')||x.endsWith('.css')||x.endsWith('.js'))return '◇';if(x.endsWith('.md')||x.endsWith('.txt'))return '¶';if(x.endsWith('.toml')||x.endsWith('.ini')||x.endsWith('.json'))return '⚙';if(x.endsWith('.pdf'))return 'PDF';if(x.endsWith('.epub'))return 'BOOK';if(/\.(png|jpe?g|gif|webp|svg)$/.test(x))return '▧';if(x.endsWith('.sql'))return '▤';return '·'};
+  function makeTree(paths){
+    const nodes={name:REPO,path:ROOT,type:'dir',children:[]};
+    for(const item of paths){
+      const rel=item.path; if(!rel)continue;
+      const parts=rel.split('/'); let cur=nodes;
+      parts.forEach((part,i)=>{
+        let node=cur.children.find(n=>n.name===part);
+        if(!node){node={name:part,path:parts.slice(0,i+1).join('/'),type:i===parts.length-1&&item.type==='blob'?'file':'dir',children:[]};cur.children.push(node)}
+        if(i===parts.length-1&&item.type==='blob')node.type='file';
+        cur=node;
+      });
+    }
+    const sort=n=>{n.children.sort((a,b)=>a.type===b.type?a.name.localeCompare(b.name):a.type==='dir'?-1:1);n.children.forEach(sort)};
+    sort(nodes);return nodes;
+  }
+  function collectCounts(n){let files=0,folders=0;if(n.type==='file')files++;else if(n.path!==ROOT)folders++;for(const c of n.children||[]){const x=collectCounts(c);files+=x.files;folders+=x.folders}return{files,folders}}
+  function flattenVisible(n,depth=0,out=[]){
+    if(n.path!==ROOT)out.push({node:n,depth});
+    if(n.type==='dir'&&(expanded.has(n.path)||filtered))for(const c of n.children)flattenVisible(c,depth+1,out);
+    return out;
+  }
+  function renderTree(){
+    const q=searchEl.value.trim().toLowerCase(); filtered=!!q;
+    let root=makeTree(entries);
+    const visible=[];
+    function walk(n,depth){
+      if(n.path!==ROOT){
+        const matches=!q||n.path.toLowerCase().includes(q);
+        const hasMatch=q&&n.type==='dir'&&n.children.some(function descendant(c){return c.path.toLowerCase().includes(q)||(c.children||[]).some(descendant)});
+        if(!q||matches||hasMatch)visible.push({node:n,depth});
+        else return;
+      }
+      if(n.type==='dir'&&((expanded.has(n.path)&&!q)||q))for(const c of n.children)walk(c,depth+1);
+    }
+    walk(root,0);
+    if(!visible.length){treeEl.innerHTML='<div class="empty">No source files match this search.</div>';return}
+    treeEl.innerHTML=visible.map(({node:n,depth})=>{
+      const isDir=n.type==='dir',open=expanded.has(n.path)||filtered,active=n.path===currentPath;
+      return `<button class="treeitem ${isDir?'folder':''} ${active?'active':''} indent" style="--depth:${Math.max(0,depth-1)}" data-path="${esc(n.path)}" data-type="${n.type}" title="${esc(n.path)}"><span class="chev">${isDir?(open?'▾':'▸'):''}</span><span class="fileicon">${isDir?(open?'📂':'📁'):iconFor(n.name)}</span><span class="fname">${esc(n.name)}</span>${isDir?`<span class="tiny">${n.children.length}</span>`:''}</button>`;
+    }).join('');
+  }
+  function renderCrumb(path){
+    const parts=path?path.split('/'):[];
+    const rootButton=`<button type="button" class="${!path?'current':''}" data-crumb-path="." title="Browse repository root inside this website">${esc(REPO)}</button>`;
+    crumb.innerHTML=rootButton+parts.map((part,i)=>{
+      const partial=parts.slice(0,i+1).join('/');
+      const isCurrent=i===parts.length-1 && partial===currentPath;
+      return `<span class="crumb-sep">/</span><button type="button" class="${isCurrent?'current':''}" data-crumb-path="${esc(partial)}" title="Browse ${esc(partial)} inside this website">${esc(part)}</button>`;
+    }).join('');
+  }
+  async function loadFile(path){
+    const item=entries.find(e=>e.path===path);if(!item)return;
+    currentPath=path;renderTree();
+    renderCrumb(path);
+    githubFile.href=`https://github.com/${OWNER}/${REPO}/blob/${encodeURIComponent(branch)}/${path.split('/').map(encodeURIComponent).join('/')}`;
+    const rawUrl=`https://raw.githubusercontent.com/${OWNER}/${REPO}/${encodeURIComponent(branch)}/${path.split('/').map(encodeURIComponent).join('/')}`;
+    codewrap.innerHTML='<div class="loading">Fetching file…</div>';
+    document.getElementById('loadState').textContent='Loading file…';
+    copyBtn.disabled=true; currentCode='';
+    try{
+      const ext=path.split('.').pop().toLowerCase();
+      const binaryExts=['pdf','epub','zip','gz','png','jpg','jpeg','gif','webp','ico','woff','woff2','ttf','mp4','mp3','sqlite','db','pyc','so','dll','exe'];
+      if(binaryExts.includes(ext)){
+        if(['png','jpg','jpeg','gif','webp','ico'].includes(ext)){codewrap.innerHTML=`<div class="welcome"><div><img src="${rawUrl}" alt="${esc(path)}" style="max-width:100%;max-height:75vh;object-fit:contain;border-radius:12px"><p>${esc(path)}</p><a class="btn primary" href="${rawUrl}" download>Download image</a></div></div>`;}
+        else if(ext==='pdf'){codewrap.innerHTML=`<iframe title="${esc(path)}" src="${rawUrl}" style="width:100%;height:100%;min-height:620px;border:0;background:#fff"></iframe>`;}
+        else {codewrap.innerHTML=`<div class="welcome"><div><div class="welcomeicon">${iconFor(path)}</div><h3>File preview</h3><p>This is a ${esc(ext.toUpperCase())} or binary file, so it cannot be displayed as source code. You can open or download the original file.</p><a class="btn primary" href="${rawUrl}" target="_blank" rel="noreferrer">Open / download file ↗</a></div></div>`;}
+        document.getElementById('fileMeta').textContent=`${path} · ${(item.size/1024).toFixed(1)} KB · ${ext.toUpperCase()}`;
+        document.getElementById('loadState').innerHTML='<span class="pulse"></span>File selected';
+        return;
+      }
+      if(item.size>1500000){codewrap.innerHTML=`<div class="welcome"><div><div class="welcomeicon">▤</div><h3>Large file</h3><p>This file is too large to render comfortably in the code viewer (${(item.size/1024/1024).toFixed(2)} MB).</p><a class="btn primary" href="${rawUrl}" target="_blank" rel="noreferrer">Open raw file ↗</a></div></div>`;document.getElementById('fileMeta').textContent=`${path} · ${(item.size/1024/1024).toFixed(2)} MB`;return;}
+      let res=await fetch(rawUrl);
+      if(!res.ok)throw new Error(`GitHub returned HTTP ${res.status}`);
+      currentCode=await res.text();
+      const lines=currentCode.replace(/\n$/,'').split('\n');
+      codewrap.innerHTML=`<div class="code">${lines.map((line,i)=>`<span class="line-no">${i+1}</span><span class="code-text">${highlight(line,path)}</span>`).join('')}</div>`;
+      document.getElementById('fileMeta').textContent=`${path} · ${lines.length.toLocaleString()} lines · ${(new Blob([currentCode]).size/1024).toFixed(1)} KB`;
+      document.getElementById('loadState').innerHTML='<span class="pulse"></span>Loaded from GitHub';
+      copyBtn.disabled=false;
+    }catch(e){
+      currentCode='';copyBtn.disabled=true;
+      codewrap.innerHTML=`<div class="error"><b>Could not load this file.</b><p>${esc(e.message)}</p><p>Open it on GitHub instead, or check your connection and GitHub API rate limits.</p></div>`;
+      document.getElementById('loadState').textContent='Load failed';
+    }
+    codewrap.scrollTop=0;
+  }
+  function highlight(line,path=''){
+    const ext=(path.split('.').pop()||'').toLowerCase();
+    const isPy=ext==='py'||ext==='pyi';
+    const isShell=['sh','bash','zsh'].includes(ext);
+    const isSql=ext==='sql';
+    const prefix=isPy||isShell||isSql?'#':'#';
+    const marker=(isPy||isShell||isSql)?'#':'#';
+    const commentRules=[
+      [/^\s*#\s*!/, 'comment-red'],[/^\s*#\s*\?/, 'comment-blue'],[/^\s*#\s*\*/, 'comment-green'],[/^\s*#\s*\^/, 'comment-yellow'],[/^\s*#\s*&/, 'comment-pink'],[/^\s*#\s*~/, 'comment-purple'],[/^\s*#\s*todo\b/i, 'comment-todo']
+    ];
+    if(isPy||isShell||isSql||['yaml','yml','toml','ini','cfg','conf'].includes(ext)){
+      for(const [pattern,cls] of commentRules){if(pattern.test(line))return `<span class="${cls}">${esc(line)}</span>`;}
+      if(/^\s*#/.test(line)){
+        const looksLikeCode=/^\s*#\s*(?:def|class|return|if|elif|else|for|while|import|from|print\s*\(|async|await|try|except|with|let|const|function|SELECT|INSERT|UPDATE|DELETE|CREATE|ALTER|DROP)\b/i.test(line);
+        return `<span class="${looksLikeCode?'commented-code':'comment'}">${esc(line)}</span>`;
+      }
+      let safe=esc(line);
+      safe=safe.replace(/(&quot;.*?&quot;|&#39;.*?&#39;|&quot;&quot;&quot;.*?&quot;&quot;&quot;)/g,'<span class="str">$1</span>');
+      if(isPy)safe=safe.replace(/\b(def|class|return|if|elif|else|for|while|in|is|not|and|or|import|from|as|try|except|finally|raise|with|yield|lambda|pass|break|continue|global|nonlocal|assert|del|async|await|True|False|None|self|super)\b/g,'<span class="kw">$1</span>');
+      else if(isSql)safe=safe.replace(/\b(SELECT|FROM|WHERE|JOIN|ON|AS|INSERT|INTO|VALUES|UPDATE|SET|DELETE|CREATE|TABLE|ALTER|DROP|PRIMARY|KEY|FOREIGN|REFERENCES|NULL|NOT|AND|OR|ORDER|BY|GROUP|LIMIT)\b/gi,'<span class="kw">$1</span>');
+      else if(isShell)safe=safe.replace(/\b(if|then|else|fi|for|do|done|case|esac|function|export|return|in)\b/g,'<span class="kw">$1</span>');
+      safe=safe.replace(/\b(\d+(?:\.\d+)?)\b/g,'<span class="num">$1</span>');
+      return safe||' ';
+    }
+    // Non-Python text still gets readable generic syntax and colorful comment markers.
+    for(const [pattern,cls] of commentRules){if(pattern.test(line))return `<span class="${cls}">${esc(line)}</span>`;}
+    if(/^\s*\/\//.test(line)||/^\s*\/\*/.test(line)||/^\s*\*/.test(line))return `<span class="comment">${esc(line)}</span>`;
+    let safe=esc(line);
+    safe=safe.replace(/(&quot;.*?&quot;|&#39;.*?&#39;)/g,'<span class="str">$1</span>');
+    safe=safe.replace(/\b(fn|let|mut|pub|use|mod|struct|enum|impl|trait|where|match|if|else|loop|while|for|in|return|self|Self|async|await|move|const|static|type|as|dyn|unsafe|extern|crate|super|true|false|Some|None|Ok|Err)\b/g,'<span class="kw">$1</span>');
+    safe=safe.replace(/\b(\d+)\b/g,'<span class="num">$1</span>');
+    return safe||' ';
+  }
+  async function init(){
+    try{
+      const meta=await fetch(API,{headers:{Accept:'application/vnd.github+json'}});
+      if(!meta.ok)throw new Error(`Repository API returned HTTP ${meta.status}`);
+      const info=await meta.json();branch=info.default_branch||'main';
+      document.getElementById('branchName').textContent=branch;
+      const res=await fetch(`${API}/git/trees/${encodeURIComponent(branch)}?recursive=1`,{headers:{Accept:'application/vnd.github+json'}});
+      if(!res.ok)throw new Error(`Source tree request returned HTTP ${res.status}`);
+      const data=await res.json();
+      if(data.truncated)throw new Error('GitHub truncated the repository tree response; some paths may be missing.');
+      entries=(data.tree||[]).filter(x=>x.type==='blob').map(x=>({path:x.path,type:x.type,size:x.size||0})).sort((a,b)=>a.path.localeCompare(b.path));
+      const allDirs=new Set();entries.forEach(e=>{const parts=e.path.split('/');for(let i=1;i<parts.length;i++)allDirs.add(parts.slice(0,i).join('/'))});
+      dirs=allDirs;
+      document.getElementById('fileCount').textContent=entries.length;
+      document.getElementById('folderCount').textContent=dirs.size;
+      document.getElementById('treeStatus').textContent=`${entries.length} files`;
+      if(!entries.length){treeEl.innerHTML='<div class="empty">No files were found in this repository.</div>';return}
+      renderTree();
+      document.getElementById('loadState').innerHTML='<span class="pulse"></span>Source tree synced';
+      document.getElementById('openFirst').addEventListener('click',()=>loadFile((entries.find(e=>e.path.toLowerCase().endsWith('.py'))||entries.find(e=>!['pdf','epub','zip','gz','png','jpg','jpeg','gif','webp','ico','woff','woff2','ttf','mp4','mp3','sqlite','db','pyc','so','dll','exe'].includes(e.path.split('.').pop().toLowerCase()))||entries[0]).path));
+    }catch(e){
+      treeEl.innerHTML=`<div class="error"><b>Could not load repository tree.</b><p>${esc(e.message)}</p><p>Check your connection, confirm the repository is public, or open the source directory directly.</p><a class="btn" href="https://github.com/${OWNER}/${REPO}" target="_blank" rel="noreferrer">Open repository on GitHub ↗</a></div>`;
+      document.getElementById('treeStatus').textContent='Unavailable';
+      document.getElementById('loadState').textContent='Connection needed';
+    }
+  }
+  crumb.addEventListener('click',e=>{
+    const button=e.target.closest('button[data-crumb-path]');if(!button)return;
+    const path=button.dataset.crumbPath;
+    if(path===currentPath){if(entries.some(item=>item.path===path))loadFile(path);return}
+    const isFile=entries.some(item=>item.path===path);
+    if(isFile){loadFile(path);return}
+    // Breadcrumb navigation stays inside this page: filter to the selected folder.
+    searchEl.value=path==='.'?'':path;
+    const parts=path==='.'?[]:path.split('/');
+    for(let i=1;i<=parts.length;i++)expanded.add(parts.slice(0,i).join('/'));
+    expanded.add(ROOT);renderTree();
+    document.getElementById('treeStatus').textContent=path==='.'?`${entries.length} files`:`Browsing ${path}`;
+  });
+  const focusBtn=document.getElementById('focusBtn');
+  function toggleFocus(force){
+    const active=typeof force==='boolean'?force:!document.body.classList.contains('focus-code');
+    document.body.classList.toggle('focus-code',active);
+    focusBtn.setAttribute('aria-pressed',String(active));
+    focusBtn.textContent=active?'⤢ Restore layout':'⛶ Expand code';
+    focusBtn.title=active?'Return to the full website layout':'Expand the code viewer to fill the page';
+  }
+  focusBtn.addEventListener('click',()=>toggleFocus());
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('focus-code'))toggleFocus(false)});
+  treeEl.addEventListener('click',e=>{
+    const b=e.target.closest('button[data-path]');if(!b)return;
+    const path=b.dataset.path;
+    if(b.dataset.type==='dir'){if(expanded.has(path))expanded.delete(path);else expanded.add(path);renderTree()}
+    else loadFile(path);
+  });
+  searchEl.addEventListener('input',renderTree);
+  copyBtn.addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText(currentCode);copyBtn.textContent='Copied!';setTimeout(()=>copyBtn.textContent='Copy code',1200)}
+    catch{copyBtn.textContent='Copy blocked';setTimeout(()=>copyBtn.textContent='Copy code',1200)}
+  });
+  init();
+})();
+</script>
+</body>
+</html>
